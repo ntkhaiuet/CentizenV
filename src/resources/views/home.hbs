@@ -1,1 +1,18 @@
-<h2>home page</h2>
+<div class="mt-4">
+    <div class="row">
+
+        {{#each courses}}
+        <div class="col-sm-6 col-lg-5">
+            <div class="card">
+                <img class="card-img-top" src="{{this.image}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{this.name}}</h5>
+                    <p class="card-text">{{this.description}}</p>
+                    <a href="#" class="btn btn-primary">Join</a>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+
+    </div>
+</div>
