@@ -9,6 +9,12 @@ const port = 3000;
 // Folder static
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Middleware
+app.use(express.urlencoded({
+  extended: true
+}));
+app.use(express.json());
+
 // HTTP logger
 app.use(morgan("combined"));
 
@@ -23,6 +29,11 @@ app.get("/", (req, res) => {
 
 app.get("/search", (req, res) => {
   res.render("search");
+});
+
+app.post("/search", (req, res) => {
+  console.log(req.body);
+  res.send("");
 });
 
 
