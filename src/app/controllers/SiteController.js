@@ -1,13 +1,14 @@
-const Course = require('../models/Courses');
+// const Course = require('../models/Courses');
 
 class SiteController {
 
     // [GET] /
     index(req, res, next) {
 
-        Course.find({}).lean()
-            .then(courses => res.render('home', {courses: courses}))
-            .catch(next);
+        // Course.find({}).lean()
+        //     .then(courses => res.render('home', {courses: courses}))
+        //     .catch(next);
+        res.render('home');
         
     }
 

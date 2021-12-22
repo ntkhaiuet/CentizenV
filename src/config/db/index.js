@@ -1,9 +1,15 @@
-const mongoose = require('mongoose');
+const mysql = require('mysql')
 
-async function connect() {
+function connect() {
 
     try {
-        await mongoose.connect('mongodb://localhost:27017/centizenv_dev');
+        var connection = mysql.createConnection({
+            host: 'localhost',
+            user: 'root',
+            password: 'aoaoao99',
+            database: 'centizenv_dev'
+        })
+        connection.connect();
         console.log("Connect succesfully");
     } catch (error) {
         console.log("Connect failure");
