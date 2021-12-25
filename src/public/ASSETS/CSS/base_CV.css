@@ -1,0 +1,272 @@
+:root {
+    --primary-color: #219150;
+    --white-color: #fff;
+    --black-color: #000;
+    --title-color: #0b4623;
+    --text-color: #11301d;
+    --border-color: #1c7a44;
+    --hover-bgr-color: #adebc8;
+    --bgr-color: #7de7a9;
+
+    --height-header: 70px;
+    --height-header-with-search: calc(var(--height-header) - var(--height-navbar));
+
+    --growth-form: 0.6;
+    --growth-to: 1;
+}
+
+* {
+    box-sizing: inherit;
+    outline: none;
+}
+
+html {
+    /* HACK*/
+    font-size: 62.5%;
+    /* độ cao chữ mặc định */
+    line-height: 1.6rem;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.header {
+    position: fixed;
+    top : 0;
+    left: 0;
+    right: 0;
+    height: var(--height-header);
+    background-image: linear-gradient(0, #219150, #2ca75f);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.header__body {
+    margin: 0 auto;
+    height: 100%;
+    width: 1000px;
+    max-width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main {
+    width: 900px;
+    max-width: 90%;
+    margin: auto;
+    padding-top: 120px;
+    background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
+    background-size: 100% auto;
+}
+
+.margin-bt-12 {
+    margin-bottom: 12px !important;
+}
+
+.col-24{
+    flex: 0 0 24%;
+}
+
+/* Button */
+.btn {
+    min-width: 100px;
+    height: 34px;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    font-size: 1.4rem;
+    padding: 10px 6px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.6rem;
+    background-color: var(--white-color);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.8);
+}
+
+
+
+.Phan__dem-Show::before {
+    position: absolute;
+    content: "";
+    top: -16px;
+    left: 0;
+    width: 100%;
+    height: 8%;
+    display: block;
+    /* background-color: red; */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*============== footer ============= */
+#footer {
+    margin-top: 50px;
+    padding: 44px 16px 15px;
+    text-align: center;
+    border-top: 2px solid #448b62;
+}
+
+.footer__list a {
+    text-decoration: none;
+}
+
+.footer__list-icon {
+    font-size: 24px;
+    text-decoration: none;
+    color: #14552f;
+    opacity: 0.8;
+    margin: 0 4px;
+}
+
+.footer__list-icon:hover {
+    color: var(--primary-color);
+}
+
+.footer__list {
+    width: 100%;
+    max-width: 370px;
+    margin: 0 auto;
+}
+
+.footer__list h3{
+    font-size: 2rem;
+    font-weight: 450;
+    color: var(--title-color);
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.footer__list ul {
+    padding: unset;
+    margin: 0 0 20px;
+}
+
+.footer__list li {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer__list--text {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 450;
+    color: var(--primary-color);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Check RADIO */
+.input-radio {
+    padding: unset;
+    display: flex;
+}
+
+.input-radio .container-radio {
+    min-width: 35px;
+    margin-right: 12px;
+}
+
+.container-radio {
+    position: relative;
+    display: flex;
+    padding-left: 20px;
+    cursor:pointer;
+    font-size: 16px;
+    font-weight: 300;
+    user-select: none;
+}
+
+.same-input .check-name {
+    display: block;
+    margin-left: 4px;
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--text-color);
+    transform: translateY(20%);
+}
+
+.container-radio input {
+    position:absolute;
+    cursor: pointer;
+    width: 0;
+    height: 0;
+    opacity: 0;
+}
+
+.container-radio .container__checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background-color: #eee;
+    border-radius: 10px;
+    border: 1px solid #999;
+}
+
+/* .container-radio input ~ .container__checkmark {
+    background-color: #998832;
+} */
+
+.container-radio .check-name {
+    display: block;
+    margin-left: 6px;
+    transform: translateY(-1px);
+}
+
+
+.container-radio input:checked ~ .container__checkmark {
+    background-color: var(--primary-color);
+}
+
+.container__checkmark::after {
+    position: absolute;
+    content: "";
+    top: 3px;
+    left: 3.5px;
+    width: 12px;
+    height: 12px;
+    background-color: #fffefe;
+    border-radius: 50%;
+    transform: translateX(-6%);
+    display: none;
+}
+
+.container-radio input:checked ~ .container__checkmark::after {
+    display: block;
+}
+
+@keyframes modalfadeIn {
+    from {
+        opacity: 0.5;
+        transform: translateY(-150%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

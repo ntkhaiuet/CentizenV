@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../ASSETS/CSS/login.css">
+    <link rel="stylesheet" href="../ASSETS/CSS/base_CV.css">
+    <title>CitizenV</title>
+</head>
+<body>
+    <div class="main-login">
+        <form action="/add" method="POST" class="form" id="form-2">
+          <h3 class="heading">Thêm Tỉnh/Thành phố</h3>
+          <p class="desc">Ứng Dụng Quản Lý Dân Cư</p>
+  
+          <div class="spacer"></div>
+  
+          <div class="form-group">
+            <label for="id" class="form-label">Mã số</label>
+            <input id="id" name="id" type="text" placeholder="01 - 99" class="form-control">
+            <span class="form-message"></span>
+          </div>
+  
+          <div class="form-group">
+            <label for="tinh" class="form-label">Tên tỉnh</label>
+            <input id="tinh" name="tinh" type="text" placeholder="Nhập tên tỉnh" class="form-control">
+            <span class="form-message"></span>
+          </div>
+  
+          <button class="form-submit">Nhập</button>
+        </form>
+    </div>
+
+    <script src="../ASSETS/JS/js_Validation.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          Validator({
+            form: '#form-2',
+            formGroupSelector: '.form-group',
+            errorSelector: '.form-message',
+            rules: [
+              Validator.isRequired('#tinh', 'Vui lòng nhập tên tỉnh'),
+              Validator.minLength('#id', 2, 'Vui lòng nhập mã số'),
+            ]
+          });
+        });
+    </script>
+</body>
+</html>

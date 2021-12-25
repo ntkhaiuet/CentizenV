@@ -1,25 +1,271 @@
-{{!-- <div class="mt-4">
-    <div class="row">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../ASSETS/fontawesome-free-5.15.4-web/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="../ASSETS/CSS/base_CV.css">
+    <link rel="stylesheet" href="../ASSETS/CSS/main_CV.css">
+    <link rel="stylesheet" href="../ASSETS/CSS/Responsive.css">
+    <title>CitizenV</title>
+</head>
 
-        {{#each courses}}
-        <div class="col-sm-6 col-lg-5">
-            <div class="card">
-                <img class="card-img-top" src="{{this.image}}" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">{{this.name}}</h5>
-                    <p class="card-text">{{this.description}}</p>
-                    <a href="#" class="btn btn-primary">Join</a>
+<!-- header trang HOME -->
+<header class="header">
+    <div class="header__body">
+        <div id="CitizenV">CitizenV</div>
+
+        <div class="header__navbar-item header__navbar-login">
+            <span class="header__navbar-login-name">
+                <span id="name-user" style="text-decoration: none; color: black">{{username}}</span>
+                <div class="user-avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+            </span>
+            
+            <ul class="header__navbar-showdetails Phan_dem_Show">
+                <li class="header__navbar-show-item">
+                    <a href="/home" class="header__navbar-show-link">Tài khoản của tôi</a>
+                </li>
+                <li class="header__navbar-show-item header__navbar-show-item--separate">
+                    <a href="/logout" class="header__navbar-show-link">Đăng xuất</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<div class="main main-home">
+    <!-- phần nút bấm bên trên -->
+    <div class="row">
+        <div class="col btn-home">
+            <a href="{{link1}}" class="btn btn-home__item">{{content1}}</a>
+        </div>
+
+        <div class="col btn-home">
+            <a href="{{link2}}" class="btn btn-home__item">{{content2}}</a>
+        </div>
+    </div>
+
+    <!-- Thông kê nam nữ -->
+    <div class="row statistics statistics-sex">  
+        <div class="col statistics__data">
+            <div class="row align-items-center row-input statistics__data-select">
+                <span>Chọn Khu Vực</span>
+                <div class="statistics__data-input">
+                    <div class="row margin-bt-12 input-address-1 input-address-statistics">
+                        <div class="col form-input">
+                            <select class="form-control" name="province" id="id_province" required>
+                                <option value="" disabled selected>-- Tỉnh/Thành phố --</option>
+                            </select>
+                        </div>
+                        <div class="col form-input">
+                            <select class="form-control" name="district" id="id_district" required>
+                                <option value="" disabled selected>-- Quận/Huyện --</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-input input-address-2">
+                        <select class="form-control" name="subdistrict" id="id_subdistrict" required>
+                            <option value="" disabled selected>-- Phường/Xã --</option>
+                        </select>
+                    </div>
                 </div>
             </div>
+
+            <ul>
+                <li class="total-home">
+                    <span class="total-title">Thống Kê</span>
+                </li>
+                <li class="total-home">
+                    <span class="total-name">Tổng Dân Số:</span>
+                    <span class="total-data" id="total-data">128039328</span>
+                </li>
+                <li class="total-home">
+                    <span class="total-name">Tổng Nam:</span>
+                    <span class="total-data" id="data-male">128039328</span>
+                </li>
+                <li class="total-home">
+                    <span class="total-name">Tổng Nữ:</span>
+                    <span class="total-data" id="data-female">128039328</span>
+                </li>
+            </ul>
         </div>
-        {{/each}}
 
+        <div class="col chart">
+            <div class="chartCard">
+                <div class="chartBox">
+                    <canvas id="myChart-doughnut"></canvas>
+                </div>
+            </div>
+
+            <h3>Biểu Đồ Tỉ Lệ Giữa Nam và Nữ</h3>
+        </div>
     </div>
-</div> --}}
+    <!-- thông kê theo độ tuổi lao động -->
+    <div class="row statistics statistics-age">  
+        <div class="col row statistics__data statistics__data-mobile">
+            <ul>
+                <li class="total-home">
+                    <span class="total-title">Thống Kê Theo Độ Tuổi</span>
+                </li>
+                <li class="total-home">
+                    <div class="note note-14"></div>
+                    <span class="total-name">Từ 0 - 14:</span>
+                    <span class="total-data" id="dataAge14">128039328</span>
+                </li>
+                <li class="total-home">
+                    <div class="note note-34"></div>
+                    <span class="total-name">Từ 15 - 34:</span>
+                    <span class="total-data" id="dataAge34">128039328</span>
+                </li>
+                <li class="total-home">
+                    <div class="note note-54"></div>
+                    <span class="total-name">Từ 35 - 54:</span>
+                    <span class="total-data" id="dataAge54">128039328</span>
+                </li>
+                <li class="total-home">
+                    <div class="note note-65"></div>
+                    <span class="total-name">Từ 55 - 65:</span>
+                    <span class="total-data" id="dataAge65">128039328</span>
+                </li>
+                <li class="total-home">
+                    <div class="note note-above"></div>
+                    <span class="total-name">Trên 65:</span>
+                    <span class="total-data" id="dataAgeAbove">128039328</span>
+                </li>
+            </ul>
+        </div>
 
-<h1>HOME PAGE</h1>
-<h2>HOME PAGE</h2>
-<h3>HOME PAGE</h3>
-<h4>HOME PAGE</h4>
-<h5>HOME PAGE</h5>
-<h6>HOME PAGE</h6>
+        <div class="col-8 chart">
+            <div class="chart-layout">
+                <div class="chart-layout__item note-14" style="--percent: 10%">10%</div>
+                <div class="chart-layout__item note-34" style="--percent: 20%">20%</div>
+                <div class="chart-layout__item note-54" style="--percent: 40%">40%</div>
+                <div class="chart-layout__item note-65" style="--percent: 90%">90%</div>
+                <div class="chart-layout__item note-above" style="--percent: 80%">80%</div>
+            </div>
+            
+            <h3>Biểu Đồ Theo Từng Độ Tuổi</h3>
+        </div>
+    </div>
+
+    <!-- footer trang HOME -->
+    <div id="footer">
+        <div class="footer__list">
+            <h3>Sản Phẩm Được Xây Dựng Bới</h3>
+            <ul>
+                <li>
+                    <span class="footer__list--text">Nguyễn Thế Khải (nhóm trưởng) </span>
+                    <span class="footer__list--text"> MSSV: 11111111</span>
+                </li>
+                <li>
+                    <span class="footer__list--text">Nguyễn Ngọc Khánh </span>
+                    <span class="footer__list--text"> MSSV: 18020688</span>
+                </li>
+                <li>
+                    <span class="footer__list--text">Nguyễn Thế Khải </span>
+                    <span class="footer__list--text"> MSSV: 11111111</span>
+                </li>
+            </ul>
+
+            <a href="">
+                <i class="footer__list-icon fab fa-facebook-square"></i>
+            </a>
+            <a href="">
+                <i class="footer__list-icon fab fa-instagram"></i>
+            </a>
+            <a href="">
+                <i class="footer__list-icon fab fa-youtube"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- =========== Script ================= -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/chart.js-plugin-labels-dv/dist/chartjs-plugin-labels.min.js"></script>
+    <script src="../ASSETS/JS/chartdou.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+
+            $.ajax({
+                url: '../ASSETS/data_vietnam_province/tinh1.json',
+                type: 'get',
+                success: function (data) {
+                    $(data).each(function (index, value) {
+                        $('#id_province').append('<option>' + value.tinh + '</option>');
+                    })
+                }
+            })
+
+            $('#id_province').change(function () {
+                var name = $('#id_province').val();
+                var code;
+                $.ajax({
+                    url: '../ASSETS/data_vietnam_province/tinh.json',
+                    type: 'get',
+                    success: function (data) {
+                        $(data).each(function (index, value) {
+                            if (value.name === name) {
+                                code = value.code;
+                            }
+                        })
+                    }
+                })
+                $('#id_district').empty().append('<option value="" disabled selected>-- Quận/Huyện --</option>');
+                $('#id_subdistrict').empty().append('<option value="" disabled selected>-- Phường/Xã --</option>');
+                $.ajax({
+                    url: '../ASSETS/data_vietnam_province/quan.json',
+                    type: 'get',
+                    success: function (data) {
+                        $(data).each(function (index, value) {
+                            if (value.province_code === code) {
+                                $('#id_district').append('<option>' + value.name + '</option>');
+                            }
+                        })
+                    }
+                })
+            })
+
+            $('#id_district').change(function () {
+                var district_name = $('#id_district').val();
+                var code;
+                $.ajax({
+                    url: '../ASSETS/data_vietnam_province/quan.json',
+                    type: 'get',
+                    success: function (data) {
+                        $(data).each(function (index, value) {
+                            if (value.name === district_name) {
+                                code = value.code;
+                            }
+                        })
+                    }
+                })
+                $('#id_subdistrict').empty().append('<option value="" disabled selected>Phường/Xã</option>');
+                $.ajax({
+                    url: '../ASSETS/data_vietnam_province/xa.json',
+                    type: 'get',
+                    success: function (data) {
+                        $(data).each(function (index, value) {
+                            if (value.district_code === code) {
+                                $('#id_subdistrict').append('<option>' + value.name + '</option>');
+                            }
+                        })
+                    }
+                })
+            })
+        })
+    </script>
+
+</body>
+</html>

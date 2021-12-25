@@ -1,0 +1,191 @@
+/* ==================== Responsive trang HOME ===============*/
+/* PC */
+@media (max-width: 63.9375em) {
+
+}
+
+/*============= tablet ========== */
+@media (min-width: 46.25em) and (max-width: 63.9375em) {
+    .statistics__data ul {
+        margin: 30px 0 0 0;
+        padding: 0 0 0 15px;
+    }
+
+    .statistics .statistics__data-select {
+        margin: unset;
+        padding-left: 15px;
+    }
+
+    .form-input input {
+        height: 40px;
+        font-size: 1.5rem;
+    }
+
+    .chartBox {
+        width: 230px;
+    }
+    
+
+    .note {
+        width: 25px;
+        height: 12px;
+    }
+
+    .total-title {
+        font-size: 1.6rem;
+    }
+    
+    .total-name {
+        font-size: 1.3rem;
+    }
+    
+    .total-data {
+        font-size: 1.4rem;
+        letter-spacing: 1px;
+    }
+}
+
+/*============ mobile ========== */
+@media (max-width: 46.1875em) {
+
+    .statistics__data ul {
+        margin: 20px 0 20px 0;
+        padding: 0 0 0 8px;
+    }
+
+    .statistics .statistics__data-select {
+        margin: unset;
+        padding: 0 8px;
+    }
+
+    .statistics__data-mobile ul{
+        margin-top: unset;
+    }
+
+    .margin-bt-12 {
+        margin-bottom: 0 !important;
+    }
+
+    .input__item {
+        height: 35px;
+        margin-top: 10px;
+    }
+
+    .form-input input {
+        height: 35px;
+        line-height: 1.4rem;
+    }
+
+    .statistics__data-input .input-address-statistics div {
+        width: 100%;
+    }
+
+    .chartBox {
+        width: 230px;
+    }
+    
+
+    .note {
+        width: 25px;
+        height: 12px;
+    }
+
+    .total-title {
+        font-size: 1.6rem;
+    }
+    
+    .total-name {
+        font-size: 1.3rem;
+    }
+    
+    .total-data {
+        font-size: 1.4rem;
+        letter-spacing: 1px;
+    }
+
+    .col-8 {
+        flex: 0 0 auto;
+        width: 100%;
+    }
+
+    /* footer mobile */
+    #footer {
+        padding: 24px 16px 15px;
+    }
+
+    .footer__list h3{
+        font-size: 1.7rem;
+    }
+
+    .footer__list--text {
+        font-size: 1.3rem;
+    }
+}
+
+/* ============= RESPONSIVE trang Nhập liệu ======================*/
+
+/* mobile */
+@media (max-width: 46.1875em) {
+    .main-input .title-input {
+        font-size: 2.7rem;
+        letter-spacing: 3px;
+    }
+
+    .row-input {
+        display: inline;
+    }
+
+    .form-group {
+        width: 100%;
+        margin-bottom: 40px;
+        /* margin-top: -5px; */
+    }
+
+    .row-input label {
+        text-align: left;
+        margin: unset;
+        padding: unset;
+    }
+
+    .form-date {
+        display: flex;
+        width: 100%;
+    }
+
+    .form-date__item {
+        width: 32%;
+    }
+
+    .choose-input {
+        display: flex;
+        width: 100%;
+        margin: 15px 0 0;
+    }
+
+    .container-radio {
+        flex: 1;
+    }
+
+    .input-address {
+        width: 100%;
+    }
+
+    .input-address-1 {
+        display: inline;
+    }
+
+    .input-address-1 div {
+        width: 100%;
+    }
+
+    .input-address-2 {
+        margin-top: 2px;
+    }
+
+    /* checked radio */
+    .container-radio .check-name {
+        /* display: block; */
+        margin-left: 23px;
+        transform: translateY(-1px);
+    }
+}
