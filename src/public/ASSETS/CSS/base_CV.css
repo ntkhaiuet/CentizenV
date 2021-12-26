@@ -105,7 +105,132 @@ body {
 
 
 
+/* ================ HEADER ================== */
+#CitizenV {
+    font-size: 3rem;
+    font-family: 550;
+    color: var(--title-color);
+}
 
+
+.header__navbar-list {
+    list-style: none;
+    margin: 4px 0 0 0;
+    display: flex;
+    padding-left: 0;
+}
+
+.header__navbar-item {
+    margin: 0 9px;
+    position: relative;
+    min-height: 26px;
+}
+
+.header__navbar-login {
+    display: flex;
+    justify-items: center;
+    position: relative;
+}
+
+.header__navbar-login-img {
+    width: 22px;
+    height: 22px;
+    border-radius: 40%;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.header__navbar-login-name {
+    margin-left: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.header__navbar-login-name span {
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 450;
+    color: var(--text-color);
+}
+
+.user-avatar {
+    margin-left: 10px;
+    font-size: 2rem;
+}
+
+.user-avatar-icon:hover {
+    cursor: pointer;
+    color: var(--primary-color);
+}
+
+.back__icon {
+    font-size: 2.3rem;
+    color: var(--text-color);
+}
+
+/* Phần show bên dưới avatar */
+.header__navbar-login:hover .header__navbar-showdetails {
+    display: block;
+}
+
+.header__navbar-showdetails {
+    position: absolute;
+    top: 131%;
+    right: 0;
+    width: 160px;
+    background-color: var(--white-color);
+    z-index: 2;
+    border-radius: 3px;
+    padding-left: 0;
+    list-style: none;
+    box-shadow: 0 1px 2.125rem rgba(0, 0, 0, 0.2);
+    display: none;
+}
+
+.header__navbar-showdetails::after {
+    position: absolute;
+    content: "";
+    border-width: 22px 30px;
+    border-style: solid;
+    border-color: transparent transparent var(--hover-bgr-color) transparent;
+    top: -32px;
+    right: 19%;
+    z-index: -1;
+}
+
+.header__navbar-show-item {
+    display: flex;
+    height: 40px;
+    background-color: var(--white-color);
+    align-items: center;
+}
+
+.header__navbar-show-item:hover {
+    cursor: pointer;
+    color: var(--text-color);
+    background-color: var(--hover-bgr-color);
+}
+
+.header__navbar-show-item:first-child {
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.header__navbar-show-item:last-child {
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.header__navbar-show-item--separate {
+    border-top: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.header__navbar-show-link {
+    font-size: 1.2rem;
+    font-weight: 450;
+    color: var(--text-color);
+    text-decoration: none;
+    padding-left: 14px;
+}
 
 
 

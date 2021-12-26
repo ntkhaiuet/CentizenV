@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../ASSETS/fontawesome-free-5.15.4-web/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="../ASSETS/CSS/base_CV.css">
+    <link rel="stylesheet" href="../ASSETS/CSS/main_CV.css">
+    <link rel="stylesheet" href="../ASSETS/CSS/Responsive.css">
+    <title>CitizenV</title>
+</head>
+<body>
+    <!-- header trang nhập liệu -->
+    <header class="header">
+        <div class="header__body">
+
+            <div id="CitizenV">CitizenV</div>
+
+            <a href="/home" class="back">
+                <i class="back__icon fas fa-arrow-left"></i>
+            </a>
+    
+            <div class="header__navbar-item header__navbar-login">
+                <span class="header__navbar-login-name">
+                    <span id="name-user">{{username}}</span>
+                    <div class="user-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                </span>
+               
+                <ul class="header__navbar-showdetails Phan_dem_Show">
+                    <li class="header__navbar-show-item">
+                        <a href="" class="header__navbar-show-link">Tài khoản của tôi</a>
+                    </li>
+                    <li class="header__navbar-show-item header__navbar-show-item--separate">
+                        <a href="/logout" class="header__navbar-show-link">Đăng xuất</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <form class="main">
+        <div class="row search">
+            <h3>Tìm Kiếm Dân Cư</h3>
+
+            <div class="col search__other">
+                <div class="search__other-item">
+                    <input type="text" name="view_search" id="view_search" class="search__other-input" placeholder="Nhập Họ và tên/CCCD">
+                    <i class="search__other-icon fas fa-search"></i>
+                </div>
+            </div>
+
+            <div class="col row search__address align-items-center statistics__data-select">
+                <div class="statistics__data-input">
+                    <div class="row margin-bt-12 input-address-1 input-address-statistics">
+                        <div {{hidden_province}} class="col form-input">
+                            <select name="province"  id="id_province" class="input__item">
+                                <option value="" disabled selected >-- Tỉnh/Thành phố --</option>
+                            </select>
+                            <input class="billing_address_1" type="hidden" value="">
+                        </div>
+                        <div {{hidden_district}} class="col form-input">
+                            <select name="district" id="id_district" class=" input__item">
+                                <option value="" disabled selected class="option">-- Quận/Huyện --</option>
+                            </select>
+                            <input class="billing_address_2" type="hidden" value="">
+                        </div>
+                    </div>
+
+                    <div class="row margin-bt-12 input-address-1 input-address-statistics">
+                        <div {{hidden_subdistrict}} class="col form-input">
+                            <select name="subdistrict"  id="id_subdistrict" class="input__item">
+                                <option value="" disabled selected >-- Xã/Phường --</option>
+                            </select>
+                            <input class="billing_address_1" type="hidden" value="">
+                        </div>
+                        <div class="col form-input">
+                            <select name="thon" id="id_thon"class=" input__item">
+                                <option value="" disabled selected class="option">-- Thôn/Bản/Tổ dân phố --</option>
+                            </select>
+                            <input class="billing_address_2" type="hidden" value="">
+                        </div>
+                    </div>
+
+                    {{!-- <div class="form-input input-address-2">
+                        <input type="text" class="border-top-12 input-address__item"  placeholder="Xã">
+                    </div> --}}
+                </div>
+            </div>
+        </div>
+
+        <div class="body-view">
+            <div class="group-op-container">
+                <div class="group-op nodisplay" id="delete">
+                    <a href="/delete"><button disabled class="btn group-op-delete">Xóa</button> </a>
+                </div>
+            </div>
+
+            <table class="table-view">
+                <thead class="table_head">
+                    <tr>
+                        <th>
+                            <input type="checkbox" name="checkall" id="checkall">
+                        </th>
+                        <th>Họ và tên</th>
+                        <th>Ngày sinh</th>
+                        <th>Giới Tính</th>
+                        <th class="displaynone">Số CMT/CCCD</th>
+                        <th class="displaynone">Quê Quán</th>
+                        <th class="th-last"></th>
+                    </tr>
+                </thead>
+                <tbody class="table_body">
+                    {{!-- <tr class="oddr">
+                        <td>
+                            <input type="checkbox" name="checkid" id="checkid">
+                        </td>
+                        <td>Hoàng Văn A</td>
+                        <td>2/2/2002</td>
+                        <td>Nam</td>
+                        <td class="displaynone">001200034571</td>
+                        <td class="displaynone">Lương Phúc / Việt Long / Sóc Sơn / Hà NỘi</td>
+                        <td class="button-show">
+                            <button class="btn btn-show displaynone">Chi Tiết</button>
+                            <i class="btn-show-mobile js-btn-show-mobile fas fa-bars"></i>
+                        </td>
+                    </tr>
+                    <tr class="oddr">
+                        <td>
+                            <input type="checkbox" name="checkid" id="checkid">
+                        </td>
+                        <td>Hoàng Văn A</td>
+                        <td>2/2/2002</td>
+                        <td>Nam</td>
+                        <td class="displaynone">001200034571</td>
+                        <td class="displaynone">Lương Phúc / Việt Long / Sóc Sơn / Hà NỘi</td>
+                        <td class="button-show">
+                            <button class="btn btn-show displaynone">Chi Tiết</button>
+                            <i class="btn-show-mobile js-btn-show-mobile fas fa-bars"></i>
+                        </td>
+                    </tr> --}}
+                </tbody>
+            </table>
+        </div>
+    </form>
+<!-- Mobile -->
+    <form class="modal-confirm js-modal-confirm">
+        <div class="confirm-container showdata-mobile">
+            <span>Thông Tin Cơ Bản</span>
+            <div class="row row-input">
+                <label class="col-24">1.Họ và Tên </label>
+                <div class="form-group js-form-group">
+                    <div class="form-input">
+                        <input type="text" class="input-name" id="fullname" name="fullname" disabled>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-input">
+                <label class="col-24">2.Ngày Sinh </label>
+                <div class="form-group js-form-group">
+                    <div class="form-input">
+                        <input type="text" class="dob" id="dob" name="dob" disabled>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-input">
+                <label class="col-24">3.Giới Tính </label>
+                <div class="form-group js-form-group">
+                    <div class="form-input">
+                        <input type="text" class="sex" id="sex" name="sex" disabled>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-input">
+                <label class="col-24">4.Số CMT/CCCD </label>
+                <div class="form-group js-form-group">
+                    <div class="form-input">
+                        <input type="text" class="cccd" id="cccd" name="cccd" disabled>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-input">
+                <label class="col-24">5.Quê Quán </label>
+                <div class="form-group js-form-group">
+                    <div class="form-input">
+                        <input type="text" class="address" id="address" name="address" disabled>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn btn-show btn-show-mobile">Xem Chi Tiết</button>
+
+            <i class="modal__close-icon js-close fas fa-times"></i>
+        </div>
+    </form>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/vietblogdao/js/districts.min.js"></script>
+   
+    <script src="../ASSETS/JS/address_date.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+
+            var name_province;
+            var name_district
+            var name_subdistrict;
+            var name_thon;
+            var code_province;
+            var code_district;
+            var code_subdistrict;
+            var code_thon;
+            var view_search;
+            
+            if ({{dinh_danh}} === 1) {
+
+                $('#view_search').on('input',function(e){
+                    view_search = $('#view_search').val();
+                    $('.table_body').empty();
+                    fetch('../ASSETS/data_vietnam_province/nguoidan.json').then(response => {
+                    return response.json();
+                    }).then(data => {
+                        $(data).each(function (index, value) {
+                            if (value.name.includes(view_search) || value.cccd.includes(view_search)) {
+                                fetch('../ASSETS/data_vietnam_province/thon.json').then(response1 => {
+                                    return response1.json();
+                                }).then(data1 => {
+                                    $(data1).each(function (index1, value1) {
+                                        if (value1.id === value.id_thon) {
+                                            var que_quan;
+                                            que_quan = value1.thon;
+                                            fetch('../ASSETS/data_vietnam_province/xa.json').then(response2 => {
+                                                return response2.json();
+                                            }).then(data2 => {
+                                                $(data2).each(function (index2, value2) {
+                                                    if (value2.id === value1.id_xa) {
+                                                        que_quan = que_quan + ", " + value2.xa;
+                                                        fetch('../ASSETS/data_vietnam_province/huyen.json').then(response3 => {
+                                                            return response3.json();
+                                                        }).then(data3 => {
+                                                            $(data3).each(function (index3, value3) {
+                                                                if (value3.id === value2.id_huyen) {
+                                                                    que_quan = que_quan + ", " + value3.huyen;
+                                                                    fetch('../ASSETS/data_vietnam_province/tinh.json').then(response4 => {
+                                                                        return response4.json();
+                                                                    }).then(data4 => {
+                                                                        $(data4).each(function (index4, value4) {
+                                                                            if (value4.id === value3.id_tinh) {
+                                                                                que_quan = que_quan + ", " + value4.tinh;
+                                                                                $('.table_body').append('<tr class="oddr">'+'<td><input type="checkbox" name="checkid" id="checkid"></td>'+
+                                                                                '<td>'+value.name+'</td><td>'+value.dob+'</td><td>'+value.gioi_tinh+'</td><td class="displaynone">'+value.cccd+
+                                                                                '</td><td class="displaynone">'+que_quan+'</td><td class="button-show">'+ '<a href="/view/' + value.cccd + '">' +'<button disabled class="btn btn-show displaynone">Chi Tiết</button>' + '</a>' + '<i class="btn-show-mobile js-btn-show-mobile fas fa-bars"></i></td></tr>');
+                                                                            }
+                                                                        })
+                                                                    }).catch(err => {
+                                                                        console.log(err);
+                                                                    });
+                                                                }
+                                                            })
+                                                        }).catch(err => {
+                                                            console.log(err);
+                                                        });
+                                                    }
+                                                })
+                                            }).catch(err => {
+                                                console.log(err);
+                                            });
+                                        }
+                                    })
+                                }).catch(err => {
+                                    console.log(err);
+                                });
+                                
+                            }
+                        });
+                    }).catch(err => {
+                        console.log(err);
+                    });
+                });
+
+                $.ajax({
+                    url: '../ASSETS/data_vietnam_province/tinh.json',
+                    type: 'get',
+                    success: function (data) {
+                        $(data).each(function (index, value) {
+                            $('#id_province').append('<option>' + value.tinh + '</option>');
+                        })
+                    }
+                })
+
+                $('#id_province').change(function () {
+                    name_province = $('#id_province').val();
+                    $.ajax({
+                        url: '../ASSETS/data_vietnam_province/tinh.json',
+                        type: 'get',
+                        success: function (data) {
+                            $(data).each(function (index, value) {
+                                if (value.tinh === name_province) {
+                                    code_province = value.id;
+                                }
+                            })
+                        }
+                    })
+                    $('#id_district').empty().append('<option value="" disabled selected>-- Quận/Huyện --</option>');
+                    $('#id_subdistrict').empty().append('<option value="" disabled selected>-- Phường/Xã --</option>');
+                    $('#id_thon').empty().append('<option value="" disabled selected>-- Thôn/Bản/Tổ dân phố --</option>');
+                    $.ajax({
+                        url: '../ASSETS/data_vietnam_province/huyen.json',
+                        type: 'get',
+                        success: function (data) {
+                            $(data).each(function (index, value) {
+                                if (value.id_tinh === code_province) {
+                                    $('#id_district').append('<option>' + value.huyen + '</option>');
+                                }
+                            })
+                        }
+                    })
+                })
+
+                $('#id_district').change(function () {
+                    name_district = $('#id_district').val();
+                    $.ajax({
+                        url: '../ASSETS/data_vietnam_province/huyen.json',
+                        type: 'get',
+                        success: function (data) {
+                            $(data).each(function (index, value) {
+                                if (value.huyen === name_district) {
+                                    code_district = value.id;
+                                }
+                            })
+                        }
+                    })
+                    $('#id_subdistrict').empty().append('<option value="" disabled selected>-- Phường/Xã --</option>');
+                    $('#id_thon').empty().append('<option value="" disabled selected>-- Thôn/Bản/Tổ dân phố --</option>');
+                    $.ajax({
+                        url: '../ASSETS/data_vietnam_province/xa.json',
+                        type: 'get',
+                        success: function (data) {
+                            $(data).each(function (index, value) {
+                                if (value.id_huyen === code_district) {
+                                    $('#id_subdistrict').append('<option>' + value.xa + '</option>');
+                                }
+                            })
+                        }
+                    })
+                })
+
+                $('#id_subdistrict').change(function () {
+                    name_subdistrict = $('#id_subdistrict').val();
+                    $.ajax({
+                        url: '../ASSETS/data_vietnam_province/xa.json',
+                        type: 'get',
+                        success: function (data) {
+                            $(data).each(function (index, value) {
+                                if (value.xa === name_subdistrict) {
+                                    code_subdistrict = value.id;
+                                }
+                            })
+                        }
+                    })
+                    $('#id_thon').empty().append('<option value="" disabled selected>-- Thôn/Bản/Tổ dân phố --</option>');
+                    $.ajax({
+                        url: '../ASSETS/data_vietnam_province/thon.json',
+                        type: 'get',
+                        success: function (data) {
+                            $(data).each(function (index, value) {
+                                if (value.id_xa === code_subdistrict) {
+                                    $('#id_thon').append('<option>' + value.thon + '</option>');
+                                }
+                            })
+                        }
+                    })
+                })
+
+                $('#id_thon').change(function () {
+                    name_thon = $('#id_thon').val();
+                    $.ajax({
+                        url: '../ASSETS/data_vietnam_province/thon.json',
+                        type: 'get',
+                        success: function (data) {
+                            $(data).each(function (index, value) {
+                                if (value.thon === name_thon) {
+                                    code_thon = value.id;
+                                }
+                            })
+                        }
+                    })
+                })
+
+                $('#id_province').change(function () {
+                    $('.table_body').empty();
+                    fetch('../ASSETS/data_vietnam_province/nguoidan.json').then(response => {
+                    return response.json();
+                    }).then(data => {
+                        $(data).each(function (index, value) {
+                            if (value.id_thon.substring(0,2) === code_province) {
+                                $('.table_body').append('<tr class="oddr">'+'<td><input type="checkbox" name="checkid" id="checkid"></td>'+
+                                '<td>'+value.name+'</td><td>'+value.dob+'</td><td>'+value.gioi_tinh+'</td><td class="displaynone">'+value.cccd+
+                                '</td><td class="displaynone">'+name_province+'</td><td class="button-show"><button class="btn btn-show displaynone">Chi Tiết</button><i class="btn-show-mobile js-btn-show-mobile fas fa-bars"></i></td></tr>');
+                                {{!-- $('#thon').append('<option>' + value.id + '</option>'); --}}
+                            }
+                        })
+                    }).catch(err => {
+                        console.log(err);
+                    });
+                })
+
+                $('#id_district').change(function () {
+                    $('.table_body').empty();
+                    fetch('../ASSETS/data_vietnam_province/nguoidan.json').then(response => {
+                    return response.json();
+                    }).then(data => {
+                        $(data).each(function (index, value) {
+                            if (value.id_thon.substring(0,4) === code_district) {
+                                $('.table_body').append('<tr class="oddr">'+'<td><input type="checkbox" name="checkid" id="checkid"></td>'+
+                                '<td>'+value.name+'</td><td>'+value.dob+'</td><td>'+value.gioi_tinh+'</td><td class="displaynone">'+value.cccd+
+                                '</td><td class="displaynone">'+name_district+'</td><td class="button-show"><button class="btn btn-show displaynone">Chi Tiết</button><i class="btn-show-mobile js-btn-show-mobile fas fa-bars"></i></td></tr>');
+                                {{!-- $('#thon').append('<option>' + value.id + '</option>'); --}}
+                            }
+                        })
+                    }).catch(err => {
+                        console.log(err);
+                    });
+                })
+
+                $('#id_subdistrict').change(function () {
+                    $('.table_body').empty();
+                    fetch('../ASSETS/data_vietnam_province/nguoidan.json').then(response => {
+                    return response.json();
+                    }).then(data => {
+                        $(data).each(function (index, value) {
+                            if (value.id_thon.substring(0,6) === code_subdistrict) {
+                                $('.table_body').append('<tr class="oddr">'+'<td><input type="checkbox" name="checkid" id="checkid"></td>'+
+                                '<td>'+value.name+'</td><td>'+value.dob+'</td><td>'+value.gioi_tinh+'</td><td class="displaynone">'+value.cccd+
+                                '</td><td class="displaynone">'+name_subdistrict+'</td><td class="button-show"><button class="btn btn-show displaynone">Chi Tiết</button><i class="btn-show-mobile js-btn-show-mobile fas fa-bars"></i></td></tr>');
+                                {{!-- $('#thon').append('<option>' + value.id + '</option>'); --}}
+                            }
+                        })
+                    }).catch(err => {
+                        console.log(err);
+                    });
+                })
+
+                $('#id_thon').change(function () {
+                    $('.table_body').empty();
+                    fetch('../ASSETS/data_vietnam_province/nguoidan.json').then(response => {
+                    return response.json();
+                    }).then(data => {
+                        $(data).each(function (index, value) {
+                            if (value.id_thon === code_thon) {
+                                $('.table_body').append('<tr class="oddr">'+'<td><input type="checkbox" name="checkid" id="checkid"></td>'+
+                                '<td>'+value.name+'</td><td>'+value.dob+'</td><td>'+value.gioi_tinh+'</td><td class="displaynone">'+value.cccd+
+                                '</td><td class="displaynone">'+name_thon+'</td><td class="button-show"><button class="btn btn-show displaynone">Chi Tiết</button><i class="btn-show-mobile js-btn-show-mobile fas fa-bars"></i></td></tr>');
+                                {{!-- $('#thon').append('<option>' + value.id + '</option>'); --}}
+                            }
+                        })
+                    }).catch(err => {
+                        console.log(err);
+                    });
+                })
+
+            } else if ({{dinh_danh}} === 2) {
+
+                $('#view_search').on('input',function(e){
+                    view_search = $('#view_search').val();
+                    $('.table_body').empty();
+                    fetch('../ASSETS/data_vietnam_province/nguoidan.json').then(response => {
+                    return response.json();
+                    }).then(data => {
+                        $(data).each(function (index, value) {
+                            if (value.id_thon.substring(0,2) === "{{code}}" && (value.name.includes(view_search) || value.cccd.includes(view_search))) {
+                                fetch('../ASSETS/data_vietnam_province/thon.json').then(response1 => {
+                                    return response1.json();
+                                }).then(data1 => {
+                                    $(data1).each(function (index1, value1) {
+                                        if (value1.id === value.id_thon) {
+                                            var que_quan;
+                                            que_quan = value1.thon;
+                                            fetch('../ASSETS/data_vietnam_province/xa.json').then(response2 => {
+                                                return response2.json();
+                                            }).then(data2 => {
+                                                $(data2).each(function (index2, value2) {
+                                                    if (value2.id === value1.id_xa) {
+                                                        que_quan = que_quan + ", " + value2.xa;
+                                                        fetch('../ASSETS/data_vietnam_province/huyen.json').then(response3 => {
+                                                            return response3.json();
+                                                        }).then(data3 => {
+                                                            $(data3).each(function (index3, value3) {
+                                                                if (value3.id === value2.id_huyen) {
+                                                                    que_quan = que_quan + ", " + value3.huyen;
+                                                                    fetch('../ASSETS/data_vietnam_province/tinh.json').then(response4 => {
+                                                                        return response4.json();
+                                                                    }).then(data4 => {
+                                                                        $(data4).each(function (index4, value4) {
+                                                                            if (value4.id === value3.id_tinh) {
+                                                                                que_quan = que_quan + ", " + value4.tinh;
+                                                                                $('.table_body').append('<tr class="oddr">'+'<td><input type="checkbox" name="checkid" id="checkid"></td>'+
+                                                                                '<td>'+value.name+'</td><td>'+value.dob+'</td><td>'+value.gioi_tinh+'</td><td class="displaynone">'+value.cccd+
+                                                                                '</td><td class="displaynone">'+que_quan+'</td><td class="button-show">'+ '<a href="/view/' + value.cccd + '">' +'<button disabled class="btn btn-show displaynone">Chi Tiết</button>' + '</a>' + '<i class="btn-show-mobile js-btn-show-mobile fas fa-bars"></i></td></tr>');
+                                                                            }
+                                                                        })
+                                                                    }).catch(err => {
+                                                                        console.log(err);
+                                                                    });
+                                                                }
+                                                            })
+                                                        }).catch(err => {
+                                                            console.log(err);
+                                                        });
+                                                    }
+                                                })
+                                            }).catch(err => {
+                                                console.log(err);
+                                            });
+                                        }
+                                    })
+                                }).catch(err => {
+                                    console.log(err);
+                                });
+                                
+                            }
+                        });
+                    }).catch(err => {
+                        console.log(err);
+                    });
+                });
+
+                $.ajax({
+                    url: '../ASSETS/data_vietnam_province/huyen.json',
+                    type: 'get',
+                    success: function (data) {
+                        $(data).each(function (index, value) {
+                            if (value.id_tinh === "{{code}}") {
+                                $('#id_district').append('<option>' + value.huyen + '</option>');
+                            }
+                        })
+                    }
+                })
+
+                $('#id_district').change(function () {
+                    name_district = $('#id_district').val();
+                    $.ajax({
+                        url: '../ASSETS/data_vietnam_province/huyen.json',
+                        type: 'get',
+                        success: function (data) {
+                            $(data).each(function (index, value) {
+                                if (value.huyen === name_district) {
+                                    code_district = value.id;
+                                }
+                            })
+                        }
+                    })
+                    $('#id_subdistrict').empty().append('<option value="" disabled selected>-- Phường/Xã --</option>');
+                    $('#id_thon').empty().append('<option value="" disabled selected>-- Thôn/Bản/Tổ dân phố --</option>');
+                    $.ajax({
+                        url: '../ASSETS/data_vietnam_province/xa.json',
+                        type: 'get',
+                        success: function (data) {
+                            $(data).each(function (index, value) {
+                                if (value.id_huyen === code_district) {
+                                    $('#id_subdistrict').append('<option>' + value.xa + '</option>');
+                                }
+                            })
+                        }
+                    })
+                })
+
+                $('#id_subdistrict').change(function () {
+                    name_subdistrict = $('#id_subdistrict').val();
+                    $.ajax({
+                        url: '../ASSETS/data_vietnam_province/xa.json',
+                        type: 'get',
+                        success: function (data) {
+                            $(data).each(function (index, value) {
+                                if (value.xa === name_subdistrict) {
+                                    code_subdistrict = value.id;
+                                }
+                            })
+                        }
+                    })
+                    $('#id_thon').empty().append('<option value="" disabled selected>-- Thôn/Bản/Tổ dân phố --</option>');
+                    $.ajax({
+                        url: '../ASSETS/data_vietnam_province/thon.json',
+                        type: 'get',
+                        success: function (data) {
+                            $(data).each(function (index, value) {
+                                if (value.id_xa === code_subdistrict) {
+                                    $('#id_thon').append('<option>' + value.thon + '</option>');
+                                }
+                            })
+                        }
+                    })
+                })
+
+                $('#id_thon').change(function () {
+                    name_thon = $('#id_thon').val();
+                    $.ajax({
+                        url: '../ASSETS/data_vietnam_province/thon.json',
+                        type: 'get',
+                        success: function (data) {
+                            $(data).each(function (index, value) {
+                                if (value.thon === name_thon) {
+                                    code_thon = value.id;
+                                }
+                            })
+                        }
+                    })
+                })
+
+                $('#id_district').change(function () {
+                    $('.table_body').empty();
+                    fetch('../ASSETS/data_vietnam_province/nguoidan.json').then(response => {
+                    return response.json();
+                    }).then(data => {
+                        $(data).each(function (index, value) {
+                            if (value.id_thon.substring(0,4) === code_district) {
+                                $('.table_body').append('<tr class="oddr">'+'<td><input type="checkbox" name="checkid" id="checkid"></td>'+
+                                '<td>'+value.name+'</td><td>'+value.dob+'</td><td>'+value.gioi_tinh+'</td><td class="displaynone">'+value.cccd+
+                                '</td><td class="displaynone">'+name_district+'</td><td class="button-show"><button class="btn btn-show displaynone">Chi Tiết</button><i class="btn-show-mobile js-btn-show-mobile fas fa-bars"></i></td></tr>');
+                                {{!-- $('#thon').append('<option>' + value.id + '</option>'); --}}
+                            }
+                        })
+                    }).catch(err => {
+                        console.log(err);
+                    });
+                })
+
+                $('#id_subdistrict').change(function () {
+                    $('.table_body').empty();
+                    fetch('../ASSETS/data_vietnam_province/nguoidan.json').then(response => {
+                    return response.json();
+                    }).then(data => {
+                        $(data).each(function (index, value) {
+                            if (value.id_thon.substring(0,6) === code_subdistrict) {
+                                $('.table_body').append('<tr class="oddr">'+'<td><input type="checkbox" name="checkid" id="checkid"></td>'+
+                                '<td>'+value.name+'</td><td>'+value.dob+'</td><td>'+value.gioi_tinh+'</td><td class="displaynone">'+value.cccd+
+                                '</td><td class="displaynone">'+name_subdistrict+'</td><td class="button-show"><button class="btn btn-show displaynone">Chi Tiết</button><i class="btn-show-mobile js-btn-show-mobile fas fa-bars"></i></td></tr>');
+                                {{!-- $('#thon').append('<option>' + value.id + '</option>'); --}}
+                            }
+                        })
+                    }).catch(err => {
+                        console.log(err);
+                    });
+                })
+
+                $('#id_thon').change(function () {
+                    $('.table_body').empty();
+                    fetch('../ASSETS/data_vietnam_province/nguoidan.json').then(response => {
+                    return response.json();
+                    }).then(data => {
+                        $(data).each(function (index, value) {
+                            if (value.id_thon === code_thon) {
+                                $('.table_body').append('<tr class="oddr">'+'<td><input type="checkbox" name="checkid" id="checkid"></td>'+
+                                '<td>'+value.name+'</td><td>'+value.dob+'</td><td>'+value.gioi_tinh+'</td><td class="displaynone">'+value.cccd+
+                                '</td><td class="displaynone">'+name_thon+'</td><td class="button-show"><button class="btn btn-show displaynone">Chi Tiết</button><i class="btn-show-mobile js-btn-show-mobile fas fa-bars"></i></td></tr>');
+                                {{!-- $('#thon').append('<option>' + value.id + '</option>'); --}}
+                            }
+                        })
+                    }).catch(err => {
+                        console.log(err);
+                    });
+                })
+
+            } else if ({{dinh_danh}} === 3) {
+
+                $('#view_search').on('input',function(e){
+                    view_search = $('#view_search').val();
+                    $('.table_body').empty();
+                    fetch('../ASSETS/data_vietnam_province/nguoidan.json').then(response => {
+                    return response.json();
+                    }).then(data => {
+                        $(data).each(function (index, value) {
+                            if (value.id_thon.substring(0,4) === "{{code}}" && (value.name.includes(view_search) || value.cccd.includes(view_search))) {
+                                fetch('../ASSETS/data_vietnam_province/thon.json').then(response1 => {
+                                    return response1.json();
+                                }).then(data1 => {
+                                    $(data1).each(function (index1, value1) {
+                                        if (value1.id === value.id_thon) {
+                                            var que_quan;
+                                            que_quan = value1.thon;
+                                            fetch('../ASSETS/data_vietnam_province/xa.json').then(response2 => {
+                                                return response2.json();
+                                            }).then(data2 => {
+                                                $(data2).each(function (index2, value2) {
+                                                    if (value2.id === value1.id_xa) {
+                                                        que_quan = que_quan + ", " + value2.xa;
+                                                        fetch('../ASSETS/data_vietnam_province/huyen.json').then(response3 => {
+                                                            return response3.json();
+                                                        }).then(data3 => {
+                                                            $(data3).each(function (index3, value3) {
+                                                                if (value3.id === value2.id_huyen) {
+                                                                    que_quan = que_quan + ", " + value3.huyen;
+                                                                    fetch('../ASSETS/data_vietnam_province/tinh.json').then(response4 => {
+                                                                        return response4.json();
+                                                                    }).then(data4 => {
+                                                                        $(data4).each(function (index4, value4) {
+                                                                            if (value4.id === value3.id_tinh) {
+                                                                                que_quan = que_quan + ", " + value4.tinh;
+                                                                                $('.table_body').append('<tr class="oddr">'+'<td><input type="checkbox" name="checkid" id="checkid"></td>'+
+                                                                                '<td>'+value.name+'</td><td>'+value.dob+'</td><td>'+value.gioi_tinh+'</td><td class="displaynone">'+value.cccd+
+                                                                                '</td><td class="displaynone">'+que_quan+'</td><td class="button-show">'+ '<a href="/view/' + value.cccd + '">' +'<button disabled class="btn btn-show displaynone">Chi Tiết</button>' + '</a>' + '<i class="btn-show-mobile js-btn-show-mobile fas fa-bars"></i></td></tr>');
+                                                                            }
+                                                                        })
+                                                                    }).catch(err => {
+                                                                        console.log(err);
+                                                                    });
+                                                                }
+                                                            })
+                                                        }).catch(err => {
+                                                            console.log(err);
+                                                        });
+                                                    }
+                                                })
+                                            }).catch(err => {
+                                                console.log(err);
+                                            });
+                                        }
+                                    })
+                                }).catch(err => {
+                                    console.log(err);
+                                });
+                                
+                            }
+                        });
+                    }).catch(err => {
+                        console.log(err);
+                    });
+                });
+
+                $.ajax({
+                    url: '../ASSETS/data_vietnam_province/xa.json',
+                    type: 'get',
+                    success: function (data) {
+                        $(data).each(function (index, value) {
+                            if (value.id_huyen === "{{code}}") {
+                                $('#id_subdistrict').append('<option>' + value.xa + '</option>');
+                            }
+                        })
+                    }
+                })
+
+                $('#id_subdistrict').change(function () {
+                    name_subdistrict = $('#id_subdistrict').val();
+                    $.ajax({
+                        url: '../ASSETS/data_vietnam_province/xa.json',
+                        type: 'get',
+                        success: function (data) {
+                            $(data).each(function (index, value) {
+                                if (value.xa === name_subdistrict) {
+                                    code_subdistrict = value.id;
+                                }
+                            })
+                        }
+                    })
+                    $('#id_thon').empty().append('<option value="" disabled selected>-- Thôn/Bản/Tổ dân phố --</option>');
+                    $.ajax({
+                        url: '../ASSETS/data_vietnam_province/thon.json',
+                        type: 'get',
+                        success: function (data) {
+                            $(data).each(function (index, value) {
+                                if (value.id_xa === code_subdistrict) {
+                                    $('#id_thon').append('<option>' + value.thon + '</option>');
+                                }
+                            })
+                        }
+                    })
+                })
+
+                $('#id_thon').change(function () {
+                    name_thon = $('#id_thon').val();
+                    $.ajax({
+                        url: '../ASSETS/data_vietnam_province/thon.json',
+                        type: 'get',
+                        success: function (data) {
+                            $(data).each(function (index, value) {
+                                if (value.thon === name_thon) {
+                                    code_thon = value.id;
+                                }
+                            })
+                        }
+                    })
+                })
+
+                $('#id_subdistrict').change(function () {
+                    $('.table_body').empty();
+                    fetch('../ASSETS/data_vietnam_province/nguoidan.json').then(response => {
+                    return response.json();
+                    }).then(data => {
+                        $(data).each(function (index, value) {
+                            if (value.id_thon.substring(0,6) === code_subdistrict) {
+                                $('.table_body').append('<tr class="oddr">'+'<td><input type="checkbox" name="checkid" id="checkid"></td>'+
+                                '<td>'+value.name+'</td><td>'+value.dob+'</td><td>'+value.gioi_tinh+'</td><td class="displaynone">'+value.cccd+
+                                '</td><td class="displaynone">'+name_subdistrict+'</td><td class="button-show"><button class="btn btn-show displaynone">Chi Tiết</button><i class="btn-show-mobile js-btn-show-mobile fas fa-bars"></i></td></tr>');
+                                {{!-- $('#thon').append('<option>' + value.id + '</option>'); --}}
+                            }
+                        })
+                    }).catch(err => {
+                        console.log(err);
+                    });
+                })
+
+                $('#id_thon').change(function () {
+                    $('.table_body').empty();
+                    fetch('../ASSETS/data_vietnam_province/nguoidan.json').then(response => {
+                    return response.json();
+                    }).then(data => {
+                        $(data).each(function (index, value) {
+                            if (value.id_thon === code_thon) {
+                                $('.table_body').append('<tr class="oddr">'+'<td><input type="checkbox" name="checkid" id="checkid"></td>'+
+                                '<td>'+value.name+'</td><td>'+value.dob+'</td><td>'+value.gioi_tinh+'</td><td class="displaynone">'+value.cccd+
+                                '</td><td class="displaynone">'+name_thon+'</td><td class="button-show"><button class="btn btn-show displaynone">Chi Tiết</button><i class="btn-show-mobile js-btn-show-mobile fas fa-bars"></i></td></tr>');
+                                {{!-- $('#thon').append('<option>' + value.id + '</option>'); --}}
+                            }
+                        })
+                    }).catch(err => {
+                        console.log(err);
+                    });
+                })
+
+            } else if ({{dinh_danh}} === 4) {
+
+                $('#view_search').on('input',function(e){
+                    view_search = $('#view_search').val();
+                    $('.table_body').empty();
+                    fetch('../ASSETS/data_vietnam_province/nguoidan.json').then(response => {
+                    return response.json();
+                    }).then(data => {
+                        $(data).each(function (index, value) {
+                            if (value.id_thon.substring(0,6) === "{{code}}" && (value.name.includes(view_search) || value.cccd.includes(view_search))) {
+                                fetch('../ASSETS/data_vietnam_province/thon.json').then(response1 => {
+                                    return response1.json();
+                                }).then(data1 => {
+                                    $(data1).each(function (index1, value1) {
+                                        if (value1.id === value.id_thon) {
+                                            var que_quan;
+                                            que_quan = value1.thon;
+                                            fetch('../ASSETS/data_vietnam_province/xa.json').then(response2 => {
+                                                return response2.json();
+                                            }).then(data2 => {
+                                                $(data2).each(function (index2, value2) {
+                                                    if (value2.id === value1.id_xa) {
+                                                        que_quan = que_quan + ", " + value2.xa;
+                                                        fetch('../ASSETS/data_vietnam_province/huyen.json').then(response3 => {
+                                                            return response3.json();
+                                                        }).then(data3 => {
+                                                            $(data3).each(function (index3, value3) {
+                                                                if (value3.id === value2.id_huyen) {
+                                                                    que_quan = que_quan + ", " + value3.huyen;
+                                                                    fetch('../ASSETS/data_vietnam_province/tinh.json').then(response4 => {
+                                                                        return response4.json();
+                                                                    }).then(data4 => {
+                                                                        $(data4).each(function (index4, value4) {
+                                                                            if (value4.id === value3.id_tinh) {
+                                                                                que_quan = que_quan + ", " + value4.tinh;
+                                                                                $('.table_body').append('<tr class="oddr">'+'<td><input type="checkbox" name="checkid" id="checkid"></td>'+
+                                                                                '<td>'+value.name+'</td><td>'+value.dob+'</td><td>'+value.gioi_tinh+'</td><td class="displaynone">'+value.cccd+
+                                                                                '</td><td class="displaynone">'+que_quan+'</td><td class="button-show">'+ '<a href="/view/' + value.cccd + '">' +'<button disabled class="btn btn-show displaynone">Chi Tiết</button>' + '</a>' + '<i class="btn-show-mobile js-btn-show-mobile fas fa-bars"></i></td></tr>');
+                                                                            }
+                                                                        })
+                                                                    }).catch(err => {
+                                                                        console.log(err);
+                                                                    });
+                                                                }
+                                                            })
+                                                        }).catch(err => {
+                                                            console.log(err);
+                                                        });
+                                                    }
+                                                })
+                                            }).catch(err => {
+                                                console.log(err);
+                                            });
+                                        }
+                                    })
+                                }).catch(err => {
+                                    console.log(err);
+                                });
+                                
+                            }
+                        });
+                    }).catch(err => {
+                        console.log(err);
+                    });
+                });
+
+                $.ajax({
+                    url: '../ASSETS/data_vietnam_province/thon.json',
+                    type: 'get',
+                    success: function (data) {
+                        $(data).each(function (index, value) {
+                            if (value.id_xa === "{{code}}") {
+                                $('#id_thon').append('<option>' + value.thon + '</option>');
+                            }
+                        })
+                    }
+                })
+
+                $('#id_thon').change(function () {
+                    name_thon = $('#id_thon').val();
+                    $.ajax({
+                        url: '../ASSETS/data_vietnam_province/thon.json',
+                        type: 'get',
+                        success: function (data) {
+                            $(data).each(function (index, value) {
+                                if (value.thon === name_thon) {
+                                    code_thon = value.id;
+                                }
+                            })
+                        }
+                    })
+                })
+
+                $('#id_thon').change(function () {
+                    $('.table_body').empty();
+                    fetch('../ASSETS/data_vietnam_province/nguoidan.json').then(response => {
+                    return response.json();
+                    }).then(data => {
+                        $(data).each(function (index, value) {
+                            if (value.id_thon === code_thon) {
+                                $('.table_body').append('<tr class="oddr">'+'<td><input type="checkbox" name="checkid" id="checkid"></td>'+
+                                '<td>'+value.name+'</td><td>'+value.dob+'</td><td>'+value.gioi_tinh+'</td><td class="displaynone">'+value.cccd+
+                                '</td><td class="displaynone">'+name_thon+'</td><td class="button-show"><button class="btn btn-show displaynone">Chi Tiết</button><i class="btn-show-mobile js-btn-show-mobile fas fa-bars"></i></td></tr>');
+                                {{!-- $('#thon').append('<option>' + value.id + '</option>'); --}}
+                            }
+                        })
+                    }).catch(err => {
+                        console.log(err);
+                    });
+                })
+            }
+
+            
+        })
+    </script>
+
+    <script>
+        const menus = document.querySelectorAll('.js-btn-show-mobile');
+        const modalConfirm = document.querySelector('.js-modal-confirm');
+        const close = document.querySelector('.js-close');
+
+        function showConfirm (){
+            modalConfirm.classList.add('open');
+        }
+
+        function hidenConfirm (){
+            modalConfirm.classList.remove('open');
+        }
+
+        for (const menu of menus) {
+            menu.addEventListener('click', showConfirm);
+        }
+        close.addEventListener('click', hidenConfirm);
+    </script>
+
+    <script>
+        var chkArr = document.getElementsByName('checkid');
+
+        for (i = 0; i < chkArr.length; i++){
+            chkArr[i].onchange = function () {
+                if (this.checked) {
+                    document.getElementById('delete').style.display = 'inline-block';
+                    this.parentNode.parentNode.style.backgroundColor = '#fff';
+                } else {
+                    var count = 0;
+
+                    for (j = 0; j < chkArr.length; j++) {
+                        if (chkArr[j].checked) {
+                            count += 1;
+                        }
+                    }
+
+                    if (count == 0) {
+                        document.getElementById('delete').style.display = 'none';
+                    }
+
+                    if (this.parentNode.parentNode.className == 'oddr') {
+                        this.parentNode.parentNode.style.backgroundColor = '#fff';
+                    } else {
+                        this.parentNode.parentNode.style.backgroundColor = '#fff';
+                    }
+                }
+            }
+        };
+
+        //
+        // Kích check all
+        //
+        document.getElementById("checkall").onchange = function() {
+            let c = document.getElementsByName("checkid");			
+            for (let i = 0; i < c.length; i++) {
+                c[i].checked = this.checked;
+                	
+            }
+            if (this.checked) {
+                document.querySelector("div.group-op").classList.remove("nodisplay");
+            }
+            else {
+                document.querySelector("div.group-op").classList.add("nodisplay");
+            }
+        };
+
+        //
+        //	Xóa
+        //
+        document.querySelector(".group-op-delete").onclick = function() {
+            let c = document.getElementsByName("checkid");	 		
+            for (let i = c.length-1; i >= 0; i--) {
+                if (c[i].checked) {
+                    c[i].parentNode.parentNode.parentNode.removeChild(c[i].parentNode.parentNode);
+                }
+            }
+        };
+    </script>
+</body>
+</html>

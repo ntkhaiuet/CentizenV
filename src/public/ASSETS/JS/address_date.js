@@ -74,7 +74,7 @@ if (address_2 = localStorage.getItem('address_2_saved')) {
         var date = new Date();
         var cur = date.getFullYear();
     
-        seYear.append('<option value="">Chọn Năm</option>');
+        // seYear.append('<option value="">Chọn Năm</option>');
         for (i = cur; i >= 1890; i--) {
             seYear.append('<option value="'+i+'">'+i+'</option>');
         };
@@ -97,7 +97,7 @@ if (address_2 = localStorage.getItem('address_2_saved')) {
         month[11]="Tháng 11";
         month[12]="Tháng 12";
     
-        seMonth.append('<option value="">Chọn Tháng</option>');
+        // seMonth.append('<option value="">Chọn Tháng</option>');
         for (i = 12; i > 0; i--) {
             seMonth.append('<option value="'+i+'">'+month[i]+'</option>');
         };
@@ -114,13 +114,14 @@ if (address_2 = localStorage.getItem('address_2_saved')) {
             var m = document.getElementById('month');
             var d = document.getElementById('day');
             
+
             var year = y.options[y.selectedIndex].value;
             var month = m.options[m.selectedIndex].value;
             var day = d.options[d.selectedIndex].value;
             if (day == ' ') {
                 var days = (year == ' ' || month == ' ')? 31 : dayList(month,year);
                 d.options.length = 0;
-                d.options[d.options.length] = new Option('Chọn Ngày',' ');
+                d.options[d.options.length] = new Option('Chọn Ngày','');
                 for (var i = 1; i <= days; i++)
                 d.options[d.options.length] = new Option(i,i);
             }

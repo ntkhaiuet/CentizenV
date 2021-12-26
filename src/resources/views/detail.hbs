@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CitizenV</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../ASSETS/fontawesome-free-5.15.4-web/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="../ASSETS/CSS/base_CV.css">
+    <link rel="stylesheet" href="../ASSETS/CSS/main_CV.css">
+    <link rel="stylesheet" href="../ASSETS/CSS/Responsive.css">
+</head>
+<body>
+    <!-- header trang Chỉnh Sửa -->
+    <header class="header">
+        <div class="header__body">
+
+            <div id="CitizenV">CitizenV</div>
+
+            <a href="/view" class="back">
+                <i class="back__icon fas fa-arrow-left"></i>
+            </a>
+
+            <div {{hidden_delete}} class="edit">
+                <a href="/delete">
+                    <button class="btn btn-edit" id="js-btn-edit">
+                    Xóa người này
+                    </button>
+                </a>
+            </div>
+    
+            <div class="header__navbar-item header__navbar-login">
+                <span class="header__navbar-login-name">
+                    <span id="name-user">{{username}}</span>
+                    <div class="user-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                </span>
+                <ul class="header__navbar-showdetails Phan_dem_Show">
+                    <li class="header__navbar-show-item">
+                        <a href="" class="header__navbar-show-link">Tài khoản của tôi</a>
+                    </li>
+                    <li class="header__navbar-show-item header__navbar-show-item--separate">
+                        <a href="/logout" class="header__navbar-show-link">Đăng xuất</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <form action="" id="form-1">
+        <!-- Liên quan đến cá nhân -->
+        <div class="main main-input">
+            <h1 class="title-input">
+                Thông Tin Cư Dân
+            </h1>
+
+            <div class="row row-input">
+                <label class="col-24">1. Họ và Tên </label>
+                <div class="form-group js-form-group">
+                    <div class="form-input">
+                        <input type="text" class="input-name" id="fullname" name="fullname" value="{{name}}">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row row-input">
+                <label class="col-24">2. Số CCCD/CMND </label>
+                <div class="form-group js-form-group">
+                    <div class="form-input name-input">
+                        <input type="text" class="input-name" id="cccd" name="cccd" value="{{cccd}}">
+                    </div>
+                </div>
+            </div>
+            
+            {{!-- <div class="row row-input align-items-center">
+                <label class="col-24">3. Ngày Sinh</label>
+                <div class="form-group js-form-group">
+                    <div class="form-date">
+                        <div class="form-date__item">
+                            <select name="year" id="year" size="1" class="input__item input__item-date"></select>
+                        </div>
+                        
+                        <div class="form-date__item">
+                            <select name="month" id="month" size="1" class="input__item input__item-date"></select>
+                        </div>
+                        
+                        <div class="form-date__item">
+                            <select name="day" id="day" size="1" class="input__item input__item-date">
+                            <option value=" " selected="selected">Chọn Ngày</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div> --}}
+
+            <div class="row row-input">
+                <label class="col-24">3. Ngày sinh </label>
+                <div class="form-group js-form-group">
+                    <div class="form-input">
+                        <input type="text" class="input-dob" id="dob" name="dob" value="{{dob}}">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row row-input">
+                <label class="col-24">4. Giới tính </label>
+                <div class="form-group js-form-group">
+                    <div class="form-input">
+                        <input type="text" class="input-gender" id="gender" name="gender" value="{{gender}}">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row row-input">
+                <label class="col-24">5. Quê quán </label>
+                <div class="form-group js-form-group">
+                    <div class="form-input">
+                        <input type="text" class="input-que" id="que" name="que" value="{{que}}">
+                    </div>
+                </div>
+            </div>
+
+            {{!-- <div class="row row-input align-items-center">
+                <label class="col-24" >4. Giới Tính </label>
+                <div class="form-group js-form-group">
+                    <div class="row input-radio choose-input">
+                        <label class="col container-radio">
+                            <input type="radio" id="male" name="sex" value="male">
+                            <span class="container__checkmark"></span>
+                            <span class="check-name">Nam</span>
+                        </label>
+                        <label class="col container-radio">
+                            <input type="radio" id="female" name="sex" value="female">
+                            <span class="container__checkmark"></span>
+                            <span class="check-name">Nữ</span>
+                        </label>
+                    </div>
+                </div>
+            </div> --}}
+
+            {{!-- <div class="row align-items-center row-input">
+                <label class="col-24">5.Quê Quán </label>
+                <div class="form-group">
+                    <div class="input-address">
+                        <div class="row margin-bt-12 input-address-1 js-form-group">
+                            <div class="js-form-group form-group-fixed">
+                                <div class="form-input">
+                                    <select name="calc_shipping_provinces"  id="provinces" class="input__item" required="">
+                                    <option value="">Tỉnh / Thành phố</option>
+                                    </select>
+                                    <input class="billing_address_1" type="hidden" value="">
+                                </div>
+                                <span class="form-message error"></span>
+                            </div>
+                            <div class="js-form-group form-group-fixed">
+                                <div class="form-input">
+                                    <select name="calc_shipping_district" id="district" required="" class=" input__item">
+                                    <option value="" class="option">Quận / Huyện</option>
+                                    </select>
+                                    <input class="billing_address_2" type="hidden" value="">
+                                </div>
+                                <span class="form-message error"></span>
+                            </div>
+                        </div>
+    
+                        <div class="row input-address-1">
+                            <div class="js-form-group form-group-fixed">
+                                <div class="form-input">
+                                    <input type="text" class="input__item" id="xa" name="xa" placeholder="Phường / Xã">
+                                </div>
+                                <span class="form-message error"></span>
+                            </div>
+
+                            <div class="js-form-group form-group-fixed">
+                                <div class="form-input input-address-2">
+                                    <input type="text" class="input__item"  placeholder="Số nhà, ngõ, thôn, xóm">
+                                </div>
+                                <span class="form-message error"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> --}}
+
+            <div class="row row-input">
+                <label class="col-24">6. Tôn Giáo </label>
+                <div class="form-group js-form-group">
+                    <div class="form-input name-input">
+                        <input type="text" id="religion" name="religion" value="{{religion}}">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row row-input">
+                <label class="col-24">7. Địa chỉ thường trú </label>
+                <div class="form-group js-form-group">
+                    <div class="form-input name-input">
+                        <input type="text" id="address-1" name="address-1" value="{{thuong_tru}}">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row row-input">
+                <label class="col-24">8. Địa chỉ tạm trú </label>
+                <div class="form-group js-form-group">
+                    <div class="form-input name-input">
+                        <input type="text" id="address-2" name="address-2" value="{{tam_tru}}">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row row-input">
+                <label class="col-24">9. Nghề nghiệp </label>
+                <div class="form-group js-form-group">
+                    <div class="form-input name-input">
+                        <input type="text" id="job" name="job" value="{{job}}">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+
+
+    <!-- Footer trang nhập liệu -->
+    <div id="footer">
+        <div class="footer__list">
+            <h3>Sản Phẩm Được Xây Dựng Bởi</h3>
+            <ul>
+                <li>
+                    <span class="footer__list--text">Nguyễn Thế Khải (nhóm trưởng) </span>
+                    <span class="footer__list--text"> MSSV: 11111111</span>
+                </li>
+                <li>
+                    <span class="footer__list--text">Nguyễn Ngọc Khánh </span>
+                    <span class="footer__list--text"> MSSV: 18020688</span>
+                </li>
+                <li>
+                    <span class="footer__list--text">Nguyễn Thế Khải </span>
+                    <span class="footer__list--text"> MSSV: 11111111</span>
+                </li>
+            </ul>
+
+            <a href="">
+                <i class="footer__list-icon fab fa-facebook-square"></i>
+            </a>
+            <a href="">
+                <i class="footer__list-icon fab fa-instagram"></i>
+            </a>
+            <a href="">
+                <i class="footer__list-icon fab fa-youtube"></i>
+            </a>
+        </div>
+    </div>
+
+    <!--============= Script ============= -->
+    <!-- Chức năng xoá các thông tin đã nhập -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/vietblogdao/js/districts.min.js"></script>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script src="../../ASSETS/JS/address_date.js"></script>
+    <script src="../../ASSETS/JS/js_Validation.js"></script>
+    <script src="../../ASSETS/JS/other.js"></script>
+
+    <script>
+        const enableInputs = document.querySelectorAll('[name]');
+
+        for (enableInput of enableInputs) {
+            enableInput.disabled = true;
+        }
+
+    </script>
+    
+    
+</body>
+</html>

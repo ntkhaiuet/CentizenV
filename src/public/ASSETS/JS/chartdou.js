@@ -1,3 +1,7 @@
+$('#id_province').change(function() {
+  console.log("change");
+})
+
 // Biểu Đồ thông kê Nam. Nữ theo %
 const data = {
     labels: ['Nam', 'Nữ'],

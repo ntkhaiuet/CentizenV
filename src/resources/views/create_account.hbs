@@ -6,57 +6,87 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../ASSETS/CSS/login.css">
     <link rel="stylesheet" href="../ASSETS/CSS/base_CV.css">
+    {{!-- <link rel="stylesheet" href="../ASSETS/CSS/main_CV.css"> --}}
+    <link rel="stylesheet" href="../ASSETS/fontawesome-free-5.15.4-web/css/all.min.css">
     <title>CitizenV</title>
 </head>
 <body>
-    <div class="main-login">
-        <form action="/create_account" method="POST" class="form" id="form-2">
-          <h3 class="heading">Cấp tài khoản</h3>
-          <p class="desc">Ứng Dụng Quản Lý Dân Cư</p>
-  
-          <div class="spacer"></div>
-  
-          <div class="form-group">
-            <label for="tinh" class="form-label">Tên tỉnh</label>
-            <input id="tinh" name="tinh" type="text" placeholder="VD: Hà Nội" class="form-control">
-            <span class="form-message"></span>
-          </div>
-  
-          <div class="form-group">
-            <label for="password" class="form-label">Mật khẩu</label>
-            <input id="password" name="password" type="password" placeholder="Nhập mật khẩu" class="form-control">
-            <span class="form-message"></span>
-          </div>
+  <!-- header trang HOME -->
+  <header class="header">
+      <div class="header__body">
+          <div id="CitizenV">CitizenV</div>
 
-          <div class="form-group">
-            <label for="name_manager" class="form-label">Tên nguời quản lý</label>
-            <input id="name_manager" name="name_manager" type="text" placeholder="Nhập tên người quản lý" class="form-control">
-            <span class="form-message"></span>
-          </div>
+          <a href="/home" class="back">
+                <i class="back__icon fas fa-arrow-left"></i>
+            </a>
 
-          <div class="form-group">
-            <label for="email_manager" class="form-label">Email nguời quản lý</label>
-            <input id="email_manager" name="email_manager" type="email" placeholder="Nhập email người quản lý" class="form-control">
-            <span class="form-message"></span>
+          <div class="header__navbar-item header__navbar-login">
+              <span class="header__navbar-login-name">
+                  <span id="name-user" style="text-decoration: none; color: black">{{username}}</span>
+                  <div class="user-avatar">
+                      <i class="fas fa-user-circle"></i>
+                  </div>
+              </span>
+              
+              <ul class="header__navbar-showdetails Phan_dem_Show">
+                  <li class="header__navbar-show-item">
+                      <a href="/home" class="header__navbar-show-link">Tài khoản của tôi</a>
+                  </li>
+                  <li class="header__navbar-show-item header__navbar-show-item--separate">
+                      <a href="/logout" class="header__navbar-show-link">Đăng xuất</a>
+                  </li>
+              </ul>
           </div>
-  
-          <button class="form-submit">Nhập</button>
-        </form>
-    </div>
+      </div>
+  </header>
+  <div class="main-login">
+      <form action="/create_account" method="POST" class="form" id="form-2">
+        <h3 class="heading">Cấp tài khoản</h3>
+        <p class="desc">Ứng Dụng Quản Lý Dân Cư</p>
 
-    <script src="../ASSETS/JS/js_Validation.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-          Validator({
-            form: '#form-2',
-            formGroupSelector: '.form-group',
-            errorSelector: '.form-message',
-            rules: [
-              Validator.isRequired('#tinh', 'Vui lòng nhập tên tỉnh'),
-              Validator.minLength('#password', 2, 'Vui lòng nhập mật khẩu'),
-            ]
-          });
+        <div class="spacer"></div>
+
+        <div class="form-group">
+          <label for="tinh" class="form-label">Tên {{label1}}</label>
+          <input id="tinh" name="tinh" type="text" placeholder="Nhập tên {{label1}}" class="form-control">
+          <span class="form-message"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="password" class="form-label">Mật khẩu</label>
+          <input id="password" name="password" type="password" placeholder="Nhập mật khẩu" class="form-control">
+          <span class="form-message"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="name_manager" class="form-label">Tên người quản lý</label>
+          <input id="name_manager" name="name_manager" type="text" placeholder="Nhập tên người quản lý" class="form-control">
+          <span class="form-message"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="email_manager" class="form-label">Email nguời quản lý</label>
+          <input id="email_manager" name="email_manager" type="email" placeholder="Nhập email người quản lý" class="form-control">
+          <span class="form-message"></span>
+        </div>
+
+        <button class="form-submit">Nhập</button>
+      </form>
+  </div>
+
+  <script src="../ASSETS/JS/js_Validation.js"></script>
+  <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        Validator({
+          form: '#form-2',
+          formGroupSelector: '.form-group',
+          errorSelector: '.form-message',
+          rules: [
+            Validator.isRequired('#tinh', 'Vui lòng nhập tên {{label1}}'),
+            Validator.minLength('#password', 2, 'Vui lòng nhập mật khẩu'),
+          ]
         });
-    </script>
+      });
+  </script>
 </body>
 </html>

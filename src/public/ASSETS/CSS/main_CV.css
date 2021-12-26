@@ -1,8 +1,4 @@
 /* ============= CSS input (nhập thông tin dân cư) ==========*/
-.back__icon {
-    font-size: 2.3rem;
-    color: var(--text-color);
-}
 
 .refresh {
     display: flex;
@@ -327,126 +323,6 @@
 
 
 /*====================== CSS cho phần Trang Chủ (HOME) =================*/
-#CitizenV {
-    font-size: 3rem;
-    font-family: 550;
-    color: var(--title-color);
-}
-
-
-.header__navbar-list {
-    list-style: none;
-    margin: 4px 0 0 0;
-    display: flex;
-    padding-left: 0;
-}
-
-.header__navbar-item {
-    margin: 0 9px;
-    position: relative;
-    min-height: 26px;
-}
-
-.header__navbar-login {
-    display: flex;
-    justify-items: center;
-    position: relative;
-}
-
-.header__navbar-login-img {
-    width: 22px;
-    height: 22px;
-    border-radius: 40%;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-}
-
-.header__navbar-login-name {
-    margin-left: 5px;
-    display: flex;
-    align-items: center;
-}
-
-.header__navbar-login-name span {
-    display: block;
-    font-size: 1.4rem;
-    font-weight: 450;
-    color: var(--text-color);
-}
-
-.user-avatar {
-    margin-left: 10px;
-    font-size: 2rem;
-}
-
-.user-avatar-icon:hover {
-    cursor: pointer;
-    color: var(--primary-color);
-}
-
-/* Phần show bên dưới avatar */
-.header__navbar-login:hover .header__navbar-showdetails {
-    display: block;
-}
-
-.header__navbar-showdetails {
-    position: absolute;
-    top: 131%;
-    right: 0;
-    width: 160px;
-    background-color: var(--white-color);
-    z-index: 2;
-    border-radius: 3px;
-    padding-left: 0;
-    list-style: none;
-    box-shadow: 0 1px 2.125rem rgba(0, 0, 0, 0.2);
-    display: none;
-}
-
-.header__navbar-showdetails::after {
-    position: absolute;
-    content: "";
-    border-width: 22px 30px;
-    border-style: solid;
-    border-color: transparent transparent var(--hover-bgr-color) transparent;
-    top: -32px;
-    right: 19%;
-    z-index: -1;
-}
-
-.header__navbar-show-item {
-    display: flex;
-    height: 40px;
-    background-color: var(--white-color);
-    align-items: center;
-}
-
-.header__navbar-show-item:hover {
-    cursor: pointer;
-    color: var(--text-color);
-    background-color: var(--hover-bgr-color);
-}
-
-.header__navbar-show-item:first-child {
-    border-top-left-radius: 3px;
-    border-top-right-radius: 3px;
-}
-
-.header__navbar-show-item:last-child {
-    border-bottom-left-radius: 3px;
-    border-bottom-right-radius: 3px;
-}
-
-.header__navbar-show-item--separate {
-    border-top: 1px solid rgba(0, 0, 0, 0.2);
-}
-
-.header__navbar-show-link {
-    font-size: 1.2rem;
-    font-weight: 450;
-    color: var(--text-color);
-    text-decoration: none;
-    padding-left: 14px;
-}
 
 /* thân chính ttrang chủ */
  .btn-home {
@@ -506,6 +382,10 @@
 
 .statistics__data-input .input-address-statistics div {
     width: 48%;
+}
+
+.statistics__data-input .input-address-statistics div:first-child {
+    margin-right: 20px;
 }
 
 .statistics__data ul{
@@ -621,3 +501,155 @@
     background-color: rgba(153, 102, 255, 0.2);
     border: 1px solid rgba(153, 102, 255, 1);
 }
+
+/* ===================  Trang Chỉnh Sửa Thông Tin =================*/
+.btn-edit {
+    border: 2px solid #c4900d;
+    background-color: #ebcc7f;
+    color: var(--text-color);
+}
+
+.btn-edit:hover {
+    background-color: #ddb551;
+}
+
+/* =============== Trang View =============== */
+
+.search {
+    margin-bottom: 40px;
+}
+
+.search h3 {
+    font-size: 2.5rem;
+    font-weight: 450;
+    letter-spacing: 2px;
+    color: var(--title-color);
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.search__other {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.search__other-item {
+    display: flex;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    border-radius: 2px;
+    width: 350px;
+    max-width: 100%;
+}
+
+.search__other-item input {
+    font-size: 1.4rem;
+    color: var(--text-color);
+    height: 45px;
+    width: 100%;
+    padding-left: 5px;
+    border: unset;
+    outline: none;
+}
+
+.search__other-item input::placeholder {
+    font-size: 1.3rem;
+    font-weight: 450;
+    opacity: 0.8;
+    color: var(--text-color);
+}
+
+.search__other-icon {
+    font-size: 1.8rem;
+    color: var(--text-color);
+    line-height: 1.5rem;
+    padding: 14px 10px;
+    transform: translateY(2px);
+}
+
+.search__other-item:hover {
+    border: 2px solid var(--border-color);
+}
+
+.search__other-item:hover .search__other-icon {
+    color: var(--primary-color);
+}
+
+/* VIEW BODY */
+.body-view {
+    border: 2px solid var(--border-color);
+    padding: 20px;
+}
+
+.nodisplay {
+    display:none;
+}
+
+.group-op-delete {
+    border: 2px solid rgb(224, 224, 18);
+}
+
+.group-op-delete:hover {
+    background-color: rgb(212, 212, 60);
+}
+
+.group-op-container {
+   margin-bottom: 20px;
+}
+
+.table-view {
+    width: 100%;
+    text-align: center;
+}
+
+.table_head th {
+    padding: 10px;
+}
+
+table, td, th {
+    border: 1px solid var(--primary-color);
+    border-collapse: collapse;
+}
+
+.table-view .th-last {
+    border: unset;
+}
+
+.button-show {
+    border: unset;
+    width: 0px;
+}
+
+.btn-show {
+    border-radius: 4px;
+    box-shadow: unset;
+    color: var(--text-color);
+    background-color: var(--bgr-color);
+    border-top: 2px;
+    border-bottom: 2px;
+    border-style: solid;
+    border-color: var(--border-color);
+}
+
+.btn-show:hover {
+    background-color: var(--hover-bgr-color);
+}
+
+.oddr {
+    
+}
+
+.evenr {
+    background-color: #f0f0f0;
+}
+
+.btn-show-mobile {
+    display: none;
+}
+/* 
+.table__head th:nth-child(2) {
+    display: block;
+    border: 0;
+    margin: 0 39px;
+} */

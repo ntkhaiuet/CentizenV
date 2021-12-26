@@ -80,6 +80,11 @@
         width: 100%;
     }
 
+    .statistics__data-input .input-address-statistics div:first-child {
+        margin-right: unset;
+    }
+    
+
     .chartBox {
         width: 230px;
     }
@@ -187,5 +192,53 @@
         /* display: block; */
         margin-left: 23px;
         transform: translateY(-1px);
+    }
+}
+
+/* ======================== VIEW DATA ================ */
+/* mobile */
+@media (max-width: 46.1875em) {
+    .search__other,
+    .search__address {
+        margin: 0;
+        padding: 0 0 0 8px;
+    }
+
+    .displaynone {
+        display: none;
+    }
+
+    .showdata-mobile span {
+        margin: 20px 30px 18px;
+        font-size: 1.6rem;
+        font-weight: 500;
+        color: var(--title-color);
+        letter-spacing: 1px;
+    }
+
+    .btn-show-mobile {
+        display: block;
+        font-size: 1.6rem;
+        color: var(--text-color);
+        padding: 5px 5px;
+    }
+
+    .btn-show-mobile:hover {
+        color: var(--primary-color);
+    }
+
+    .showdata-mobile {
+        padding: 20px 10px;
+    }
+
+    .btn-show-mobile {
+        width: 100%;
+        font-size: 1.6rem;
+        color: var(--text-color);
+        background-color: var(--white-color);
+    }
+
+    .btn-show-mobile:hover {
+        color: var(--primary-color);
     }
 }

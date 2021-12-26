@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../ASSETS/CSS/login.css">
+    <link rel="stylesheet" href="../ASSETS/CSS/base_CV.css">
+    <title>CitizenV</title>
+</head>
+<body>
+    <div class="main-login">
+        <form action="/khaibao/post" method="POST" class="form" id="form-2">
+          <h3 class="heading">Mở khai báo</h3>
+          <p class="desc">Ứng Dụng Quản Lý Dân Cư</p>
+  
+          <div class="spacer"></div>
+  
+          <div class="form-group">
+            <label for="openDate" class="form-label">Ngày mở</label>
+            <input id="openDate" name="openDate" type="date" placeholder="Nhập ngày mở" class="form-control">
+            <span class="form-message"></span>
+          </div>
+  
+          <div class="form-group">
+            <label for="closeDate" class="form-label">Ngày đóng</label>
+            <input id="closeDate" name="closeDate" type="date" placeholder="Nhập ngày đóng" class="form-control">
+            <span class="form-message"></span>
+          </div>
+  
+          <button class="form-submit">Hoàn tất</button>
+        </form>
+    </div>
+
+    <script src="../ASSETS/JS/js_Validation.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+          Validator({
+            form: '#form-2',
+            formGroupSelector: '.form-group',
+            errorSelector: '.form-message',
+            rules: [
+              Validator.isRequired('#openDate', 'Vui lòng nhập ngày mở'),
+              Validator.isRequired('#closeDate', 'Vui lòng nhập ngày đóng'),
+            ]
+          });
+        });
+    </script>
+</body>
+</html>

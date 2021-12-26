@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../ASSETS/fontawesome-free-5.15.4-web/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="../ASSETS/CSS/base_CV.css">
+    <link rel="stylesheet" href="../ASSETS/CSS/main_CV.css">
+    <link rel="stylesheet" href="../ASSETS/CSS/Responsive.css">
+    <title>CitizenV</title>
+</head>
+<body>
+    <!-- header trang nhập liệu -->
+    <header class="header">
+        <div class="header__body">
+            <a href="./index_home_B.html" class="back">
+                <i class="back__icon fas fa-arrow-left"></i>
+            </a>
+    
+            <div class="header__navbar-item header__navbar-login">
+                <span class="header__navbar-login-name">
+                    <span id="name-user">Nguyễn Ngọc Khánh</span>
+                    <div class="user-avatar">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                </span>
+               
+                <ul class="header__navbar-showdetails Phan_dem_Show">
+                    <li class="header__navbar-show-item">
+                        <a href="" class="header__navbar-show-link">Tài khoản của tôi</a>
+                    </li>
+                    <li class="header__navbar-show-item header__navbar-show-item--separate">
+                        <a href="" class="header__navbar-show-link">Đăng xuất</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <form class="main">
+        <div class="row search">
+            <h3>Tìm Kiếm Dân Cư</h3>
+
+            <div class="col search__other">
+                <div class="search__other-item">
+                    <input type="text" name="" id="" class="search__other-input" placeholder="Nhập Họ và tên/CCCD">
+                    <i class="search__other-icon fas fa-search"></i>
+                </div>
+            </div>
+
+            <div class="col row search__address align-items-center statistics__data-select">
+                <div class="statistics__data-input">
+                    <div class="row margin-bt-12 input-address-1 input-address-statistics">
+                        <div class="col form-input">
+                            <select name="calc_shipping_provinces"  id="provinces" class="input__item" required="">
+                                <option value="">Tỉnh / Thành phố</option>
+                            </select>
+                            <input class="billing_address_1" type="hidden" value="">
+                        </div>
+                        <div class="col form-input">
+                            <select name="calc_shipping_district" id="district" required="" class=" input__item">
+                                <option value="" class="option">Quận / Huyện</option>
+                            </select>
+                            <input class="billing_address_2" type="hidden" value="">
+                        </div>
+                    </div>
+
+                    <div class="form-input input-address-2">
+                        <input type="text" class="border-top-12 input-address__item"  placeholder="Xã">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="body-view">
+            <div class="group-op-container">
+                <div class="group-op nodisplay" id="delete">
+                    <button class="btn group-op-delete">Xóa</button> 
+                </div>
+            </div>
+
+            <table class="table-view">
+                <thead class="table_head">
+                    <tr>
+                        <th>
+                            <input type="checkbox" name="checkall" id="checkall">
+                        </th>
+                        <th>Họ và tên</th>
+                        <th>Ngày sinh</th>
+                        <th>Giới Tính</th>
+                        <th class="displaynone">Số CMT/CCCD</th>
+                        <th class="displaynone">Quê Quán</th>
+                        <th class="th-last"></th>
+                    </tr>
+                </thead>
+                <tbody class="table_body">
+                    <tr class="oddr">
+                        <td>
+                            <input type="checkbox" name="checkid" id="checkid">
+                        </td>
+                        <td>Hoàng Văn A</td>
+                        <td>2/2/2002</td>
+                        <td>Nam</td>
+                        <td class="displaynone">001200034571</td>
+                        <td class="displaynone">Lương Phúc / Việt Long / Sóc Sơn / Hà NỘi</td>
+                        <td class="button-show">
+                            <button class="btn btn-show displaynone">Chi Tiết</button>
+                            <i class="btn-show-mobile js-btn-show-mobile fas fa-bars"></i>
+                        </td>
+                    </tr>
+                    <tr class="oddr">
+                        <td>
+                            <input type="checkbox" name="checkid" id="checkid">
+                        </td>
+                        <td>Hoàng Văn A</td>
+                        <td>2/2/2002</td>
+                        <td>Nam</td>
+                        <td class="displaynone">001200034571</td>
+                        <td class="displaynone">Lương Phúc / Việt Long / Sóc Sơn / Hà NỘi</td>
+                        <td class="button-show">
+                            <button class="btn btn-show displaynone">Chi Tiết</button>
+                            <i class="btn-show-mobile js-btn-show-mobile fas fa-bars"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </form>
+<!-- Mobile -->
+    <form class="modal-confirm js-modal-confirm">
+        <div class="confirm-container showdata-mobile">
+            <span>Thông Tin Cơ Bản</span>
+            <div class="row row-input">
+                <label class="col-24">1.Họ và Tên </label>
+                <div class="form-group js-form-group">
+                    <div class="form-input">
+                        <input type="text" class="input-name" id="fullname" name="fullname" disabled>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-input">
+                <label class="col-24">2.Ngày Sinh </label>
+                <div class="form-group js-form-group">
+                    <div class="form-input">
+                        <input type="text" class="dob" id="dob" name="dob" disabled>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-input">
+                <label class="col-24">3.Giới Tính </label>
+                <div class="form-group js-form-group">
+                    <div class="form-input">
+                        <input type="text" class="sex" id="sex" name="sex" disabled>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-input">
+                <label class="col-24">4.Số CMT/CCCD </label>
+                <div class="form-group js-form-group">
+                    <div class="form-input">
+                        <input type="text" class="cccd" id="cccd" name="cccd" disabled>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-input">
+                <label class="col-24">5.Quê Quán </label>
+                <div class="form-group js-form-group">
+                    <div class="form-input">
+                        <input type="text" class="address" id="address" name="address" disabled>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn btn-show btn-show-mobile">Xem Chi Tiết</button>
+
+            <i class="modal__close-icon js-close fas fa-times"></i>
+        </div>
+    </form>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/vietblogdao/js/districts.min.js"></script>
+   
+    <script src="../ASSETS/JS/address_date.js"></script>
+
+    <script>
+        const menus = document.querySelectorAll('.js-btn-show-mobile');
+        const modalConfirm = document.querySelector('.js-modal-confirm');
+        const close = document.querySelector('.js-close');
+
+        function showConfirm (){
+            modalConfirm.classList.add('open');
+        }
+
+        function hidenConfirm (){
+            modalConfirm.classList.remove('open');
+        }
+
+        for (const menu of menus) {
+            menu.addEventListener('click', showConfirm);
+        }
+        close.addEventListener('click', hidenConfirm);
+    </script>
+
+    <script>
+        var chkArr = document.getElementsByName('checkid');
+
+        for (i = 0; i < chkArr.length; i++){
+            chkArr[i].onchange = function () {
+                if (this.checked) {
+                    document.getElementById('delete').style.display = 'inline-block';
+                    this.parentNode.parentNode.style.backgroundColor = '#fff';
+                } else {
+                    var count = 0;
+
+                    for (j = 0; j < chkArr.length; j++) {
+                        if (chkArr[j].checked) {
+                            count += 1;
+                        }
+                    }
+
+                    if (count == 0) {
+                        document.getElementById('delete').style.display = 'none';
+                    }
+
+                    if (this.parentNode.parentNode.className == 'oddr') {
+                        this.parentNode.parentNode.style.backgroundColor = '#fff';
+                    } else {
+                        this.parentNode.parentNode.style.backgroundColor = '#fff';
+                    }
+                }
+            }
+        };
+
+        //
+        // Kích check all
+        //
+        document.getElementById("checkall").onchange = function() {
+            let c = document.getElementsByName("checkid");			
+            for (let i = 0; i < c.length; i++) {
+                c[i].checked = this.checked;
+                	
+            }
+            if (this.checked) {
+                document.querySelector("div.group-op").classList.remove("nodisplay");
+            }
+            else {
+                document.querySelector("div.group-op").classList.add("nodisplay");
+            }
+        };
+
+        //
+        //	Xóa
+        //
+        document.querySelector(".group-op-delete").onclick = function() {
+            let c = document.getElementsByName("checkid");	 		
+            for (let i = c.length-1; i >= 0; i--) {
+                if (c[i].checked) {
+                    c[i].parentNode.parentNode.parentNode.removeChild(c[i].parentNode.parentNode);
+                }
+            }
+        };
+    </script>
+</body>
+</html>

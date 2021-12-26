@@ -47,32 +47,62 @@
         <div class="col btn-home">
             <a href="{{link2}}" class="btn btn-home__item">{{content2}}</a>
         </div>
+
+        <div class="col btn-home">
+            <a href="{{link3}}" class="btn btn-home__item">{{content3}}</a>
+        </div>
+
+        <div {{hidden}} class="col btn-home">
+            <a href="/input" class="btn btn-home__item">Nhập thông tin</a>
+        </div>
+
+        <div {{hidden_khaibao}} class="col btn-home">
+            <a href="/khaibao" class="btn btn-home__item khai_bao">Mở khai báo</a>
+        </div>
+
+        <div class="col btn-home">
+            <a href="/theodoi" class="btn btn-home__item khai_bao">Theo dõi tiến độ</a>
+        </div>
     </div>
 
     <!-- Thông kê nam nữ -->
-    <div class="row statistics statistics-sex">  
+    <div class="row statistics">  
         <div class="col statistics__data">
             <div class="row align-items-center row-input statistics__data-select">
                 <span>Chọn Khu Vực</span>
                 <div class="statistics__data-input">
                     <div class="row margin-bt-12 input-address-1 input-address-statistics">
-                        <div class="col form-input">
-                            <select class="form-control" name="province" id="id_province" required>
+                        <div {{hidden_province}} class="col form-input">
+                            <select style="height: 35px; font-size: 1.4rem; border: 1px solid var(--primary-color); border-bottom: 0px;" class="form-control" name="province" id="id_province">
                                 <option value="" disabled selected>-- Tỉnh/Thành phố --</option>
                             </select>
                         </div>
-                        <div class="col form-input">
-                            <select class="form-control" name="district" id="id_district" required>
+                        <div {{hidden_district}} class="col form-input">
+                            <select style="height: 35px; font-size: 1.4rem; border: 1px solid var(--primary-color); border-bottom: 0px;" class="form-control" name="district" id="id_district">
                                 <option value="" disabled selected>-- Quận/Huyện --</option>
                             </select>
                         </div>
                     </div>
 
-                    <div class="form-input input-address-2">
-                        <select class="form-control" name="subdistrict" id="id_subdistrict" required>
+                    <div class="row margin-bt-12 input-address-1 input-address-statistics">
+                        <div {{hidden_subdistrict}} class="col form-input">
+                            <select style="height: 35px; font-size: 1.4rem; border: 1px solid var(--primary-color); border-bottom: 0px;" class="form-control" name="subdistrict" id="id_subdistrict">
+                            <option value="" disabled selected>-- Phường/Xã --</option>
+                            </select>
+                        </div>
+                        <div class="col form-input">
+                            <select style="height: 35px; font-size: 1.4rem; border: 1px solid var(--primary-color); border-bottom: 0px;" class="form-control" name="thon" id="id_thon">
+                            <option value="" disabled selected>-- Thôn/Bản/Tổ dân phố --</option>
+                            </select>
+                        </div>
+                    </div>
+
+
+                    {{!-- <div class="form-input input-address-2">
+                        <select style="height: 35px; font-size: 1.4rem; border: 1px solid var(--primary-color); border-bottom: 0px;" class="form-control" name="subdistrict" id="id_subdistrict">
                             <option value="" disabled selected>-- Phường/Xã --</option>
                         </select>
-                    </div>
+                    </div> --}}
                 </div>
             </div>
 
@@ -82,15 +112,15 @@
                 </li>
                 <li class="total-home">
                     <span class="total-name">Tổng Dân Số:</span>
-                    <span class="total-data" id="total-data">128039328</span>
+                    <span class="total-data" id="total-data">3</span>
                 </li>
                 <li class="total-home">
                     <span class="total-name">Tổng Nam:</span>
-                    <span class="total-data" id="data-male">128039328</span>
+                    <span class="total-data" id="data-male">1</span>
                 </li>
                 <li class="total-home">
                     <span class="total-name">Tổng Nữ:</span>
-                    <span class="total-data" id="data-female">128039328</span>
+                    <span class="total-data" id="data-female">2</span>
                 </li>
             </ul>
         </div>
@@ -106,7 +136,7 @@
         </div>
     </div>
     <!-- thông kê theo độ tuổi lao động -->
-    <div class="row statistics statistics-age">  
+    {{!-- <div class="row statistics statistics-age">  
         <div class="col row statistics__data statistics__data-mobile">
             <ul>
                 <li class="total-home">
@@ -151,7 +181,7 @@
             
             <h3>Biểu Đồ Theo Từng Độ Tuổi</h3>
         </div>
-    </div>
+    </div> --}}
 
     <!-- footer trang HOME -->
     <div id="footer">
@@ -160,19 +190,19 @@
             <ul>
                 <li>
                     <span class="footer__list--text">Nguyễn Thế Khải (nhóm trưởng) </span>
-                    <span class="footer__list--text"> MSSV: 11111111</span>
+                    <span class="footer__list--text"> MSSV: 19020331</span>
                 </li>
                 <li>
                     <span class="footer__list--text">Nguyễn Ngọc Khánh </span>
                     <span class="footer__list--text"> MSSV: 18020688</span>
                 </li>
                 <li>
-                    <span class="footer__list--text">Nguyễn Thế Khải </span>
-                    <span class="footer__list--text"> MSSV: 11111111</span>
+                    <span class="footer__list--text">Nguyễn Đình Tuấn Anh </span>
+                    <span class="footer__list--text"> MSSV: 19020075</span>
                 </li>
             </ul>
 
-            <a href="">
+            <a href="https://www.facebook.com/Kiahtt" target="_blank">
                 <i class="footer__list-icon fab fa-facebook-square"></i>
             </a>
             <a href="">
@@ -187,7 +217,7 @@
     <!-- =========== Script ================= -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script type="text/javascript" src="https://unpkg.com/chart.js-plugin-labels-dv/dist/chartjs-plugin-labels.min.js"></script>
-    <script src="../ASSETS/JS/chartdou.js"></script>
+    {{!-- <script src="../ASSETS/JS/chartdou.js"></script> --}}
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
@@ -195,75 +225,692 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
         integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
+
+            var name_province;
+            var code_province;
+            var name_district;
+            var code_district;
+            var name_subdistrict;
+            var code_subdistrict;
+            var name_thon;
+            var code_thon;
+            var cnt_male = 0;
+            var cnt_female = 0;
 
             $.ajax({
-                url: '../ASSETS/data_vietnam_province/tinh1.json',
+                url: '../ASSETS/data_vietnam_province/nguoidan.json',
                 type: 'get',
-                success: function (data) {
-                    $(data).each(function (index, value) {
-                        $('#id_province').append('<option>' + value.tinh + '</option>');
+                success: function (data1) {
+                    $(data1).each(function (index, value) {
+                        if (value.gioi_tinh === "Nam") {
+                            cnt_male++;
+                        } else {
+                            cnt_female++;
+                        }
                     })
+
+                    var total = cnt_female + cnt_male;
+                    $('#total-data').empty().append(total);
+                    $('#data-male').empty().append(cnt_male);
+                    $('#data-female').empty().append(cnt_female);
+                    // Biểu Đồ thông kê Nam. Nữ theo %
+                    const data = {
+                        labels: ['Nam', 'Nữ'],
+                        datasets: [{
+                        label: 'Weekly Sales',
+                        data: [cnt_male, cnt_female],
+                        backgroundColor: [
+                            'rgba(255, 26, 104, 0.2)',
+                            'rgba(54, 162, 235, 0.2)'
+                        ],
+                        borderColor: [
+                            'rgba(255, 26, 104, 1)',
+                            'rgba(54, 162, 235, 1)',
+                        ],
+                        borderWidth: 1
+                        }]
+                    };
+
+                    // config 
+                    const config = {
+                        type: 'doughnut',
+                        data,
+                        options: {
+                        plugins: {
+                            labels: {
+                            render: (context) => {
+                                const percentage = context.value / showData(this) * 100;
+                                return percentage.toFixed(1) + '%';
+                            }
+                            }
+                        }
+                        }
+                    };
+
+                    // render init block
+                    const myChart = new Chart(
+                        document.getElementById('myChart-doughnut'),
+                        config
+                    );
+
+                    function showData() {
+                        let totalsum = 0;
+                        let i = 0;
+                        for(i; i < myChart.config.data.datasets[0].data.length; i++) {
+                        if(myChart.getDataVisibility(i) === true) {
+                            totalsum += myChart.config.data.datasets[0].data[i];
+                        }
+                        };
+
+                        return totalsum;
+                    };
                 }
             })
 
-            $('#id_province').change(function () {
-                var name = $('#id_province').val();
-                var code;
+            $('#id_province').change(function() {
+                cnt_male = 0;
+                cnt_female = 0;
+                name_province = $('#id_province').val();
+                $('#myChart-doughnut').remove();
+                $('.chartBox').empty().append('<canvas id="myChart-doughnut"></canvas>');
+
+                $.ajax({
+                    url: '../ASSETS/data_vietnam_province/tinh.json',
+                    type: 'get',
+                    success: function (data1) {
+                        $(data1).each(function (index, value) {
+                            if (value.tinh === name_province) {
+                                code_province = value.id;
+                            }
+                        })
+                    }
+                })
+
+                $.ajax({
+                    url: '../ASSETS/data_vietnam_province/nguoidan.json',
+                    type: 'get',
+                    success: function (data1) {
+                        $(data1).each(function (index, value) {
+                            if (value.id_thon.substring(0,2) === code_province && value.gioi_tinh === "Nam") {
+                                cnt_male++;
+                            }
+                            if (value.id_thon.substring(0,2) === code_province && value.gioi_tinh === "Nữ") {
+                                cnt_female++;
+                            }
+                        })
+
+                        var total = cnt_female + cnt_male;
+                        $('#total-data').empty().append(total);
+                        $('#data-male').empty().append(cnt_male);
+                        $('#data-female').empty().append(cnt_female);
+
+                        // Biểu Đồ thông kê Nam. Nữ theo %
+                        const data = {
+                            labels: ['Nam', 'Nữ'],
+                            datasets: [{
+                            label: 'Weekly Sales',
+                            data: [cnt_male, cnt_female],
+                            backgroundColor: [
+                                'rgba(255, 26, 104, 0.2)',
+                                'rgba(54, 162, 235, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 26, 104, 1)',
+                                'rgba(54, 162, 235, 1)',
+                            ],
+                            borderWidth: 1
+                            }]
+                        };
+
+                        // config 
+                        const config = {
+                            type: 'doughnut',
+                            data,
+                            options: {
+                            plugins: {
+                                labels: {
+                                render: (context) => {
+                                    const percentage = context.value / showData(this) * 100;
+                                    return percentage.toFixed(1) + '%';
+                                }
+                                }
+                            }
+                            }
+                        };
+
+                        // render init block
+                        const myChart = new Chart(
+                            document.getElementById('myChart-doughnut'),
+                            config
+                        );
+
+                        function showData() {
+                            let totalsum = 0;
+                            let i = 0;
+                            for(i; i < myChart.config.data.datasets[0].data.length; i++) {
+                            if(myChart.getDataVisibility(i) === true) {
+                                totalsum += myChart.config.data.datasets[0].data[i];
+                            }
+                            };
+
+                            return totalsum;
+                        };
+                    }
+                })
+                
+            })
+
+            
+            
+            $('#id_district').change(function() {
+                cnt_male = 0;
+                cnt_female = 0;
+                name_district = $('#id_district').val();
+                $('#myChart-doughnut').remove();
+                $('.chartBox').empty().append('<canvas id="myChart-doughnut"></canvas>');
+
+                $.ajax({
+                    url: '../ASSETS/data_vietnam_province/huyen.json',
+                    type: 'get',
+                    success: function (data1) {
+                        $(data1).each(function (index, value) {
+                            if (value.huyen === name_district) {
+                                code_district = value.id;
+                            }
+                        })
+                    }
+                })
+
+                $.ajax({
+                    url: '../ASSETS/data_vietnam_province/nguoidan.json',
+                    type: 'get',
+                    success: function (data1) {
+                        $(data1).each(function (index, value) {
+                            if (value.id_thon.substring(0,4) === code_district && value.gioi_tinh === "Nam") {
+                                cnt_male++;
+                            }
+                            if (value.id_thon.substring(0,4) === code_district && value.gioi_tinh === "Nữ") {
+                                cnt_female++;
+                            }
+                        })
+
+                        var total = cnt_female + cnt_male;
+                        $('#total-data').empty().append(total);
+                        $('#data-male').empty().append(cnt_male);
+                        $('#data-female').empty().append(cnt_female);
+
+                        // Biểu Đồ thông kê Nam. Nữ theo %
+                        const data = {
+                            labels: ['Nam', 'Nữ'],
+                            datasets: [{
+                            label: 'Weekly Sales',
+                            data: [cnt_male, cnt_female],
+                            backgroundColor: [
+                                'rgba(255, 26, 104, 0.2)',
+                                'rgba(54, 162, 235, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 26, 104, 1)',
+                                'rgba(54, 162, 235, 1)',
+                            ],
+                            borderWidth: 1
+                            }]
+                        };
+
+                        // config 
+                        const config = {
+                            type: 'doughnut',
+                            data,
+                            options: {
+                            plugins: {
+                                labels: {
+                                render: (context) => {
+                                    const percentage = context.value / showData(this) * 100;
+                                    return percentage.toFixed(1) + '%';
+                                }
+                                }
+                            }
+                            }
+                        };
+
+                        // render init block
+                        const myChart = new Chart(
+                            document.getElementById('myChart-doughnut'),
+                            config
+                        );
+
+                        function showData() {
+                            let totalsum = 0;
+                            let i = 0;
+                            for(i; i < myChart.config.data.datasets[0].data.length; i++) {
+                            if(myChart.getDataVisibility(i) === true) {
+                                totalsum += myChart.config.data.datasets[0].data[i];
+                            }
+                            };
+
+                            return totalsum;
+                        };
+                    }
+                })
+                
+            })
+
+            $('#id_subdistrict').change(function() {
+                cnt_male = 0;
+                cnt_female = 0;
+                name_subdistrict = $('#id_subdistrict').val();
+                $('#myChart-doughnut').remove();
+                $('.chartBox').empty().append('<canvas id="myChart-doughnut"></canvas>');
+
+                $.ajax({
+                    url: '../ASSETS/data_vietnam_province/xa.json',
+                    type: 'get',
+                    success: function (data1) {
+                        $(data1).each(function (index, value) {
+                            if (value.xa === name_subdistrict) {
+                                code_subdistrict = value.id;
+                            }
+                        })
+                    }
+                })
+
+                $.ajax({
+                    url: '../ASSETS/data_vietnam_province/nguoidan.json',
+                    type: 'get',
+                    success: function (data1) {
+                        $(data1).each(function (index, value) {
+                            if (value.id_thon.substring(0,6) === code_subdistrict && value.gioi_tinh === "Nam") {
+                                cnt_male++;
+                            }
+                            if (value.id_thon.substring(0,6) === code_subdistrict && value.gioi_tinh === "Nữ") {
+                                cnt_female++;
+                            }
+                        })
+
+                        var total = cnt_female + cnt_male;
+                        $('#total-data').empty().append(total);
+                        $('#data-male').empty().append(cnt_male);
+                        $('#data-female').empty().append(cnt_female);
+
+                        // Biểu Đồ thông kê Nam. Nữ theo %
+                        const data = {
+                            labels: ['Nam', 'Nữ'],
+                            datasets: [{
+                            label: 'Weekly Sales',
+                            data: [cnt_male, cnt_female],
+                            backgroundColor: [
+                                'rgba(255, 26, 104, 0.2)',
+                                'rgba(54, 162, 235, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 26, 104, 1)',
+                                'rgba(54, 162, 235, 1)',
+                            ],
+                            borderWidth: 1
+                            }]
+                        };
+
+                        // config 
+                        const config = {
+                            type: 'doughnut',
+                            data,
+                            options: {
+                            plugins: {
+                                labels: {
+                                render: (context) => {
+                                    const percentage = context.value / showData(this) * 100;
+                                    return percentage.toFixed(1) + '%';
+                                }
+                                }
+                            }
+                            }
+                        };
+
+                        // render init block
+                        const myChart = new Chart(
+                            document.getElementById('myChart-doughnut'),
+                            config
+                        );
+
+                        function showData() {
+                            let totalsum = 0;
+                            let i = 0;
+                            for(i; i < myChart.config.data.datasets[0].data.length; i++) {
+                            if(myChart.getDataVisibility(i) === true) {
+                                totalsum += myChart.config.data.datasets[0].data[i];
+                            }
+                            };
+
+                            return totalsum;
+                        };
+                    }
+                })
+                
+            })
+
+            $('#id_thon').change(function() {
+                cnt_male = 0;
+                cnt_female = 0;
+                name_thon = $('#id_thon').val();
+                $('#myChart-doughnut').remove();
+                $('.chartBox').empty().append('<canvas id="myChart-doughnut"></canvas>');
+
+                $.ajax({
+                    url: '../ASSETS/data_vietnam_province/thon.json',
+                    type: 'get',
+                    success: function (data1) {
+                        $(data1).each(function (index, value) {
+                            if (value.thon === name_thon) {
+                                code_thon = value.id;
+                            }
+                        })
+                    }
+                })
+
+                $.ajax({
+                    url: '../ASSETS/data_vietnam_province/nguoidan.json',
+                    type: 'get',
+                    success: function (data1) {
+                        $(data1).each(function (index, value) {
+                            if (value.id_thon === code_thon && value.gioi_tinh === "Nam") {
+                                cnt_male++;
+                            }
+                            if (value.id_thon === code_thon && value.gioi_tinh === "Nữ") {
+                                cnt_female++;
+                            }
+                        })
+
+                        var total = cnt_female + cnt_male;
+                        $('#total-data').empty().append(total);
+                        $('#data-male').empty().append(cnt_male);
+                        $('#data-female').empty().append(cnt_female);
+
+                        // Biểu Đồ thông kê Nam. Nữ theo %
+                        const data = {
+                            labels: ['Nam', 'Nữ'],
+                            datasets: [{
+                            label: 'Weekly Sales',
+                            data: [cnt_male, cnt_female],
+                            backgroundColor: [
+                                'rgba(255, 26, 104, 0.2)',
+                                'rgba(54, 162, 235, 0.2)'
+                            ],
+                            borderColor: [
+                                'rgba(255, 26, 104, 1)',
+                                'rgba(54, 162, 235, 1)',
+                            ],
+                            borderWidth: 1
+                            }]
+                        };
+
+                        // config 
+                        const config = {
+                            type: 'doughnut',
+                            data,
+                            options: {
+                            plugins: {
+                                labels: {
+                                render: (context) => {
+                                    const percentage = context.value / showData(this) * 100;
+                                    return percentage.toFixed(1) + '%';
+                                }
+                                }
+                            }
+                            }
+                        };
+
+                        // render init block
+                        const myChart = new Chart(
+                            document.getElementById('myChart-doughnut'),
+                            config
+                        );
+
+                        function showData() {
+                            let totalsum = 0;
+                            let i = 0;
+                            for(i; i < myChart.config.data.datasets[0].data.length; i++) {
+                            if(myChart.getDataVisibility(i) === true) {
+                                totalsum += myChart.config.data.datasets[0].data[i];
+                            }
+                            };
+
+                            return totalsum;
+                        };
+                    }
+                })
+                
+            })            
+        })
+
+
+
+        
+    </script>
+    <script>
+        $(document).ready(function () {
+            if ({{dinh_danh}} === 1) {
                 $.ajax({
                     url: '../ASSETS/data_vietnam_province/tinh.json',
                     type: 'get',
                     success: function (data) {
                         $(data).each(function (index, value) {
-                            if (value.name === name) {
-                                code = value.code;
-                            }
+                            $('#id_province').append('<option>' + value.tinh + '</option>');
                         })
                     }
                 })
-                $('#id_district').empty().append('<option value="" disabled selected>-- Quận/Huyện --</option>');
-                $('#id_subdistrict').empty().append('<option value="" disabled selected>-- Phường/Xã --</option>');
-                $.ajax({
-                    url: '../ASSETS/data_vietnam_province/quan.json',
-                    type: 'get',
-                    success: function (data) {
-                        $(data).each(function (index, value) {
-                            if (value.province_code === code) {
-                                $('#id_district').append('<option>' + value.name + '</option>');
-                            }
-                        })
-                    }
-                })
-            })
 
-            $('#id_district').change(function () {
-                var district_name = $('#id_district').val();
-                var code;
+                $('#id_province').change(function () {
+                    var name = $('#id_province').val();
+                    var code;
+                    $.ajax({
+                        url: '../ASSETS/data_vietnam_province/tinh.json',
+                        type: 'get',
+                        success: function (data) {
+                            $(data).each(function (index, value) {
+                                if (value.tinh === name) {
+                                    code = value.id;
+                                }
+                            })
+                        }
+                    })
+                    $('#id_district').empty().append('<option value="" disabled selected>-- Quận/Huyện --</option>');
+                    $('#id_subdistrict').empty().append('<option value="" disabled selected>-- Phường/Xã --</option>');
+                    $('#id_thon').empty().append('<option value="" disabled selected>-- Thôn/Bản/Tổ dân phố --</option>');
+                    $.ajax({
+                        url: '../ASSETS/data_vietnam_province/huyen.json',
+                        type: 'get',
+                        success: function (data) {
+                            $(data).each(function (index, value) {
+                                if (value.id_tinh === code) {
+                                    $('#id_district').append('<option>' + value.huyen + '</option>');
+                                }
+                            })
+                        }
+                    })
+                })
+
+                $('#id_district').change(function () {
+                    var district_name = $('#id_district').val();
+                    var code;
+                    $.ajax({
+                        url: '../ASSETS/data_vietnam_province/huyen.json',
+                        type: 'get',
+                        success: function (data) {
+                            $(data).each(function (index, value) {
+                                if (value.huyen === district_name) {
+                                    code = value.id;
+                                }
+                            })
+                        }
+                    })
+                    $('#id_subdistrict').empty().append('<option value="" disabled selected>-- Phường/Xã --</option>');
+                    $('#id_thon').empty().append('<option value="" disabled selected>-- Thôn/Bản/Tổ dân phố --</option>');
+                    $.ajax({
+                        url: '../ASSETS/data_vietnam_province/xa.json',
+                        type: 'get',
+                        success: function (data) {
+                            $(data).each(function (index, value) {
+                                if (value.id_huyen === code) {
+                                    $('#id_subdistrict').append('<option>' + value.xa + '</option>');
+                                }
+                            })
+                        }
+                    })
+                })
+
+                $('#id_subdistrict').change(function () {
+                    var subdistrict_name = $('#id_subdistrict').val();
+                    var code;
+                    $.ajax({
+                        url: '../ASSETS/data_vietnam_province/xa.json',
+                        type: 'get',
+                        success: function (data) {
+                            $(data).each(function (index, value) {
+                                if (value.xa === subdistrict_name) {
+                                    code = value.id;
+                                }
+                            })
+                        }
+                    })
+                    $('#id_thon').empty().append('<option value="" disabled selected>-- Thôn/Bản/Tổ dân phố --</option>');
+                    $.ajax({
+                        url: '../ASSETS/data_vietnam_province/thon.json',
+                        type: 'get',
+                        success: function (data) {
+                            $(data).each(function (index, value) {
+                                if (value.id_xa === code) {
+                                    $('#id_thon').append('<option>' + value.thon + '</option>');
+                                }
+                            })
+                        }
+                    })
+                })
+            } else if ({{dinh_danh}} === 2) {
                 $.ajax({
-                    url: '../ASSETS/data_vietnam_province/quan.json',
+                    url: '../ASSETS/data_vietnam_province/huyen.json',
                     type: 'get',
                     success: function (data) {
                         $(data).each(function (index, value) {
-                            if (value.name === district_name) {
-                                code = value.code;
+                            if (value.id_tinh === "{{code}}") {
+                                $('#id_district').append('<option>' + value.huyen + '</option>');
                             }
                         })
                     }
                 })
-                $('#id_subdistrict').empty().append('<option value="" disabled selected>Phường/Xã</option>');
+
+                $('#id_district').change(function () {
+                    var district_name = $('#id_district').val();
+                    var code;
+                    $.ajax({
+                        url: '../ASSETS/data_vietnam_province/huyen.json',
+                        type: 'get',
+                        success: function (data) {
+                            $(data).each(function (index, value) {
+                                if (value.huyen === district_name) {
+                                    code = value.id;
+                                }
+                            })
+                        }
+                    })
+                    $('#id_subdistrict').empty().append('<option value="" disabled selected>-- Phường/Xã --</option>');
+                    $('#id_thon').empty().append('<option value="" disabled selected>-- Thôn/Bản/Tổ dân phố --</option>');
+                    $.ajax({
+                        url: '../ASSETS/data_vietnam_province/xa.json',
+                        type: 'get',
+                        success: function (data) {
+                            $(data).each(function (index, value) {
+                                if (value.id_huyen === code) {
+                                    $('#id_subdistrict').append('<option>' + value.xa + '</option>');
+                                }
+                            })
+                        }
+                    })
+                })
+
+                $('#id_subdistrict').change(function () {
+                    var subdistrict_name = $('#id_subdistrict').val();
+                    var code;
+                    $.ajax({
+                        url: '../ASSETS/data_vietnam_province/xa.json',
+                        type: 'get',
+                        success: function (data) {
+                            $(data).each(function (index, value) {
+                                if (value.xa === subdistrict_name) {
+                                    code = value.id;
+                                }
+                            })
+                        }
+                    })
+                    $('#id_thon').empty().append('<option value="" disabled selected>-- Thôn/Bản/Tổ dân phố --</option>');
+                    $.ajax({
+                        url: '../ASSETS/data_vietnam_province/thon.json',
+                        type: 'get',
+                        success: function (data) {
+                            $(data).each(function (index, value) {
+                                if (value.id_xa === code) {
+                                    $('#id_thon').append('<option>' + value.thon + '</option>');
+                                }
+                            })
+                        }
+                    })
+                })
+            } else if ({{dinh_danh}} === 3) {
                 $.ajax({
                     url: '../ASSETS/data_vietnam_province/xa.json',
                     type: 'get',
                     success: function (data) {
                         $(data).each(function (index, value) {
-                            if (value.district_code === code) {
-                                $('#id_subdistrict').append('<option>' + value.name + '</option>');
+                            if (value.id_huyen === "{{code}}") {
+                                $('#id_subdistrict').append('<option>' + value.xa + '</option>');
                             }
                         })
                     }
                 })
-            })
+
+                $('#id_subdistrict').change(function () {
+                    var subdistrict_name = $('#id_subdistrict').val();
+                    var code;
+                    $.ajax({
+                        url: '../ASSETS/data_vietnam_province/xa.json',
+                        type: 'get',
+                        success: function (data) {
+                            $(data).each(function (index, value) {
+                                if (value.xa === subdistrict_name) {
+                                    code = value.id;
+                                }
+                            })
+                        }
+                    })
+                    $('#id_thon').empty().append('<option value="" disabled selected>-- Thôn/Bản/Tổ dân phố --</option>');
+                    $.ajax({
+                        url: '../ASSETS/data_vietnam_province/thon.json',
+                        type: 'get',
+                        success: function (data) {
+                            $(data).each(function (index, value) {
+                                if (value.id_xa === code) {
+                                    $('#id_thon').append('<option>' + value.thon + '</option>');
+                                }
+                            })
+                        }
+                    })
+                })
+            } else if ({{dinh_danh}} === 4) {
+                $.ajax({
+                    url: '../ASSETS/data_vietnam_province/thon.json',
+                    type: 'get',
+                    success: function (data) {
+                        $(data).each(function (index, value) {
+                            if (value.id_xa === "{{code}}") {
+                                $('#id_thon').append('<option>' + value.thon + '</option>');
+                            }
+                        })
+                    }
+                })
+            }
+            
         })
     </script>
 
