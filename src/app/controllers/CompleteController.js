@@ -3,7 +3,7 @@ var db = require("../models/index");
 
 class CompleteController {
 
-    // [GET] /news
+    // [GET] /complete
     index(req, res) {
         console.log(req.cookies.username);
         const s = req.cookies.username.split(" - ");

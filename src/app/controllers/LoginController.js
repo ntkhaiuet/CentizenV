@@ -4,12 +4,12 @@ var db = require("../models/index");
 
 class LoginController {
 
-    // [GET] /login
+    // [GET] /
     index(req, res) {
         res.render('login');
     }
 
-    // [POST] /login/auth
+    // [POST] /auth
     auth(req, res) {
         var id_b2 = /[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]/;
         var id_b1 = /[0-9][0-9][0-9][0-9][0-9][0-9]/;
@@ -26,10 +26,6 @@ class LoginController {
                         var u = results[0].id + " - " + results[0].thon;
                         res.cookie('id', results[0].id, { expires: new Date(Date.now() + 900000)});
                         res.cookie('username', u, { expires: new Date(Date.now() + 900000)});
-                        // res.cookie('content1', "Thêm Thôn/Bản/TDP", { expires: new Date(Date.now() + 900000)});
-                        // res.cookie('content2', "Cấp tài khoản", { expires: new Date(Date.now() + 900000)});
-                        // res.cookie('link1', "/add", { expires: new Date(Date.now() + 900000)});
-                        // res.cookie('link2', "/create_account", { expires: new Date(Date.now() + 900000)});
                         res.cookie('label1', "thôn/bản/tổ dân phố", { expires: new Date(Date.now() + 900000)});
                         res.cookie('b2', true, { expires: new Date(Date.now() + 900000)});
                         res.cookie('hidden', "hidden", { expires: new Date(Date.now() + 900000)});
@@ -142,7 +138,7 @@ class LoginController {
 
     }
 
-    // [GET] /login/auth
+    // [GET] /auth
     getAuth(req, res) {
         if (req.cookies.b2) {
             db.query("SELECT open, close FROM khaibao WHERE id = ?", [req.cookies.id_xa], function(err, results) {
@@ -326,5 +322,6 @@ class LoginController {
             });
         }
     }
+    
 }
 module.exports = new LoginController;

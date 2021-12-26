@@ -4,7 +4,7 @@ const fs = require('fs');
 
 class TheodoiController {
 
-    // [GET] /news
+    // [GET] /theodoi
     index(req, res) {
         db.query("SELECT id, ten FROM tiendo;", function(err, results) {
             if (err) throw err;
@@ -20,7 +20,6 @@ class TheodoiController {
         } else if (req.cookies.b1) {
             res.render('theodoi', {username: req.cookies.username, dinh_danh: 4, code: req.cookies.id});
         }
-        
     }
 
 }

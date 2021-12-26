@@ -3,7 +3,7 @@ var db = require("../models/index");
 
 class EditController {
 
-    // [GET] /news
+    // [GET] /edit
     index(req, res) {
         if (req.cookies.b2) {
             res.render('edit', {username: req.cookies.username, hidden_thon: "hidden"});
@@ -13,6 +13,7 @@ class EditController {
         
     }
 
+    // [POST] /edit/post
     postEdit(req, res) {
         var dob = req.body.year + "/" + req.body.month + "/" + req.body.day;
         var thuong_tru = req.body['address-1'];
@@ -31,6 +32,7 @@ class EditController {
         });
     }
 
+    // [GET] /edit/edit
     getEdit(req, res) {
         res.redirect('/input');
     }

@@ -6,45 +6,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../ASSETS/CSS/login.css">
     <link rel="stylesheet" href="../ASSETS/CSS/base_CV.css">
+    <link rel="stylesheet" href="../ASSETS/fontawesome-free-5.15.4-web/css/all.min.css">
     <title>CitizenV</title>
 </head>
 <body>
-    <div class="main-login">
-        <form action="/khaibao/post" method="POST" class="form" id="form-2">
-          <h3 class="heading">Mở khai báo</h3>
-          <p class="desc">Ứng Dụng Quản Lý Dân Cư</p>
-  
-          <div class="spacer"></div>
-  
-          <div class="form-group">
-            <label for="openDate" class="form-label">Ngày mở</label>
-            <input id="openDate" name="openDate" type="date" placeholder="Nhập ngày mở" class="form-control">
-            <span class="form-message"></span>
-          </div>
-  
-          <div class="form-group">
-            <label for="closeDate" class="form-label">Ngày đóng</label>
-            <input id="closeDate" name="closeDate" type="date" placeholder="Nhập ngày đóng" class="form-control">
-            <span class="form-message"></span>
-          </div>
-  
-          <button class="form-submit">Hoàn tất</button>
-        </form>
-    </div>
 
-    <script src="../ASSETS/JS/js_Validation.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-          Validator({
-            form: '#form-2',
-            formGroupSelector: '.form-group',
-            errorSelector: '.form-message',
-            rules: [
-              Validator.isRequired('#openDate', 'Vui lòng nhập ngày mở'),
-              Validator.isRequired('#closeDate', 'Vui lòng nhập ngày đóng'),
-            ]
-          });
+  <!-- header trang HOME -->
+  <header class="header">
+      <div class="header__body">
+          <div id="CitizenV">CitizenV</div>
+
+          <a href="/home" class="back">
+                <i class="back__icon fas fa-arrow-left"></i>
+            </a>
+
+          <div class="header__navbar-item header__navbar-login">
+              <span class="header__navbar-login-name">
+                  <span id="name-user" style="text-decoration: none; color: black">{{username}}</span>
+                  <div class="user-avatar">
+                      <i class="fas fa-user-circle"></i>
+                  </div>
+              </span>
+              
+              <ul class="header__navbar-showdetails Phan_dem_Show">
+                  <li class="header__navbar-show-item">
+                      <a href="/home" class="header__navbar-show-link">Tài khoản của tôi</a>
+                  </li>
+                  <li class="header__navbar-show-item header__navbar-show-item--separate">
+                      <a href="/logout" class="header__navbar-show-link">Đăng xuất</a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </header>
+  <div class="main-login">
+      <form action="/khaibao/post" method="POST" class="form" id="form-2">
+        <h3 class="heading">Mở khai báo</h3>
+        <p class="desc">Ứng Dụng Quản Lý Dân Cư</p>
+
+        <div class="spacer"></div>
+
+        <div class="form-group">
+          <label for="openDate" class="form-label">Ngày mở</label>
+          <input id="openDate" name="openDate" type="date" placeholder="Nhập ngày mở" class="form-control">
+          <span class="form-message"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="closeDate" class="form-label">Ngày đóng</label>
+          <input id="closeDate" name="closeDate" type="date" placeholder="Nhập ngày đóng" class="form-control">
+          <span class="form-message"></span>
+        </div>
+
+        <button class="form-submit">Hoàn tất</button>
+      </form>
+  </div>
+
+  <script src="../ASSETS/JS/js_Validation.js"></script>
+  <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        Validator({
+          form: '#form-2',
+          formGroupSelector: '.form-group',
+          errorSelector: '.form-message',
+          rules: [
+            Validator.isRequired('#openDate', 'Vui lòng nhập ngày mở'),
+            Validator.isRequired('#closeDate', 'Vui lòng nhập ngày đóng'),
+          ]
         });
-    </script>
+      });
+  </script>
 </body>
 </html>

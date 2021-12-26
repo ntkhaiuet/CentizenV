@@ -3,7 +3,7 @@ var db = require("../models/index");
 
 class DeleteController {
 
-    // [GET] /news
+    // [GET] /delete
     index(req, res) {
         db.query("DELETE FROM nguoi_dan WHERE cccd = ?", [req.cookies.cccd], function(err, results) {
             if (err) {

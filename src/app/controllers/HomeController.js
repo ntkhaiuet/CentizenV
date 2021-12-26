@@ -1,11 +1,10 @@
 const res = require("express/lib/response");
 const fs = require('fs');
 var db = require("../models/index");
-// var VarLogin = require('./LoginController');
 
 class HomeController {
 
-    // [GET] /news
+    // [GET] /home
     index(req, res) {
         db.query("SELECT id, tinh FROM data_tinh;", function(err, results) {
             if (err) throw err;
@@ -56,10 +55,6 @@ class HomeController {
         
     }
 
-    // [GET] /news/:slug
-    // show(req, res) {
-    //     res.send('new detail');
-    // }
 }
 
 module.exports = new HomeController;

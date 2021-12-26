@@ -3,12 +3,12 @@ var db = require("../models/index")
 
 class CreateAccountController {
 
-    // [GET] /news
+    // [GET] /create_account
     index(req, res) {
         res.render('create_account', {label1: req.cookies.label1, username: req.cookies.username});
     }
 
-    // [POST] /add
+    // [POST] /create_account
     create_account(req, res) {
 
         if (req.cookies.b1) {
@@ -34,10 +34,6 @@ class CreateAccountController {
         }
     }
 
-    // [GET] /news/:slug
-    // show(req, res) {
-    //     res.send('new detail');
-    // }
 }
 
 module.exports = new CreateAccountController;

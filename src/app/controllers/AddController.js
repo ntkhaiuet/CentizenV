@@ -3,7 +3,7 @@ var db = require("../models/index")
 
 class AddController {
 
-    // [GET] /news
+    // [GET] /add
     index(req, res) {
         res.render('add', {tieude: req.cookies.content1, placeholder1: req.cookies.id, label1: req.cookies.label1, username: req.cookies.username});
     }
@@ -33,11 +33,6 @@ class AddController {
             });
         }
     }
-
-    // [GET] /news/:slug
-    // show(req, res) {
-    //     res.send('new detail');
-    // }
 }
 
 module.exports = new AddController;

@@ -2,7 +2,7 @@ const res = require("express/lib/response");
 
 class LogoutController {
 
-    // [GET] /news
+    // [GET] /logout
     index(req, res) {
         res.clearCookie('id');
         res.clearCookie('username');
@@ -27,16 +27,6 @@ class LogoutController {
         res.redirect('/');
     }
 
-    // [POST] /add
-    // add(req, res) {
-    //     console.log(req.body.id);
-    //     res.redirect('/home');
-    // }
-
-    // [GET] /news/:slug
-    // show(req, res) {
-    //     res.send('new detail');
-    // }
 }
 
 module.exports = new LogoutController;

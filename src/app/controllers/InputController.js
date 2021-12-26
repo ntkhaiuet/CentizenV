@@ -3,7 +3,7 @@ var db = require("../models/index");
 
 class InputController {
 
-    // [GET] /news
+    // [GET] /input
     index(req, res) {
         if (req.cookies.b1) {
             res.render('input', {username: req.cookies.username, code: req.cookies.id, required: "required"});
@@ -13,7 +13,7 @@ class InputController {
         
     }
 
-    // [POST] /add
+    // [POST] /input/add
     add(req, res) {
         var dob = req.body.year + "/" + req.body.month + "/" + req.body.day;
         var thuong_tru = req.body['address-1'];
@@ -51,10 +51,11 @@ class InputController {
         }
     }
 
-    // [GET] /news/:slug
+    // [GET] /input/add
     getAdd(req, res) {
         res.redirect("/input");
     }
+    
 }
 
 module.exports = new InputController;

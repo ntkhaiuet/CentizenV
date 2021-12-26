@@ -25,6 +25,7 @@ function route(app) {
     app.use('/add', addRouter);
     app.use('/home', homeRouter);
     app.use('/', loginRouter);
+    
 }
 
 module.exports = route;

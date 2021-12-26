@@ -3,18 +3,12 @@ var db = require("../models/index");
 
 class KhaibaoController {
 
-    // [GET] /news
+    // [GET] /khaibao
     index(req, res) {
-        // db.query("DELETE FROM nguoi_dan WHERE cccd = ?", [req.cookies.cccd], function(err, results) {
-        //     if (err) {
-        //         res.status(404).send('ERROR!!!')
-        //     } else {
-        //         res.redirect('view');
-        //     }
-        // });
-        res.render('khaibao');
+        res.render('khaibao', {username: req.cookies.username});
     }
 
+    // [POST] /khaibao/post
     post(req, res) {
         var a1 = '0';
         var a2 = '0';
@@ -46,12 +40,13 @@ class KhaibaoController {
                 }
             });
         }
-        
     }
 
+    // [GET] /khaibao/get
     get(req, res) {
         res.redirect('/home');
     }
+    
 }
 
 module.exports = new KhaibaoController;

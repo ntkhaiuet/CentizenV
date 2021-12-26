@@ -4,7 +4,7 @@ const fs = require('fs');
 
 class ViewController {
 
-    // [GET] /news
+    // [GET] /view
     index(req, res) {
         db.query("SELECT * FROM nguoi_dan;", function(err, results) {
             if (err) throw err;
@@ -25,14 +25,15 @@ class ViewController {
         
     }
 
+    // [GET] /view/:cccd
     search(req, res) {
         res.cookie('cccd', req.params.cccd, { expires: new Date(Date.now() + 900000)});
         res.redirect("detail");
     }
 
+    // [GET /view/detail
     detail(req, res) {
         var cccd = req.cookies.cccd;
-        // res.clearCookie('cccd');
         db.query("SELECT * FROM nguoi_dan WHERE cccd = ?", [cccd], function(err, results) {
             if (err) {
                 res.status(404).send('ERROR!!!')

@@ -3,7 +3,6 @@ const express = require("express");
 const morgan = require("morgan");
 const { engine } = require("express-handlebars");
 const { extname, dirname } = require("path");
-// const session = require("express-session");
 const cookieParser = require("cookie-parser");
 const app = express();
 const port = 3000;
@@ -24,14 +23,6 @@ app.use(express.json());
 
 // Express cookie
 app.use(cookieParser());
-
-// Express-session
-// app.use(session({
-//   secret: 'secret',
-//   resave: true,
-//   saveUninitialized: true,
-//   cookie: { maxAge: 60000 }
-// }));
 
 // HTTP logger
 app.use(morgan("combined"));
