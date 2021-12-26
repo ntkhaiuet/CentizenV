@@ -115,34 +115,6 @@
                     </tr>
                 </thead>
                 <tbody class="table_body">
-                    {{!-- <tr class="oddr">
-                        <td>
-                            <input type="checkbox" name="checkid" id="checkid">
-                        </td>
-                        <td>Hoàng Văn A</td>
-                        <td>2/2/2002</td>
-                        <td>Nam</td>
-                        <td class="displaynone">001200034571</td>
-                        <td class="displaynone">Lương Phúc / Việt Long / Sóc Sơn / Hà NỘi</td>
-                        <td class="button-show">
-                            <button class="btn btn-show displaynone">Chi Tiết</button>
-                            <i class="btn-show-mobile js-btn-show-mobile fas fa-bars"></i>
-                        </td>
-                    </tr>
-                    <tr class="oddr">
-                        <td>
-                            <input type="checkbox" name="checkid" id="checkid">
-                        </td>
-                        <td>Hoàng Văn A</td>
-                        <td>2/2/2002</td>
-                        <td>Nam</td>
-                        <td class="displaynone">001200034571</td>
-                        <td class="displaynone">Lương Phúc / Việt Long / Sóc Sơn / Hà NỘi</td>
-                        <td class="button-show">
-                            <button class="btn btn-show displaynone">Chi Tiết</button>
-                            <i class="btn-show-mobile js-btn-show-mobile fas fa-bars"></i>
-                        </td>
-                    </tr> --}}
                 </tbody>
             </table>
         </div>
@@ -407,8 +379,7 @@
                             if (value.id_thon.substring(0,2) === code_province) {
                                 $('.table_body').append('<tr class="oddr">'+'<td><input type="checkbox" name="checkid" id="checkid"></td>'+
                                 '<td>'+value.name+'</td><td>'+value.dob+'</td><td>'+value.gioi_tinh+'</td><td class="displaynone">'+value.cccd+
-                                '</td><td class="displaynone">'+name_province+'</td><td class="button-show"><button class="btn btn-show displaynone">Chi Tiết</button><i class="btn-show-mobile js-btn-show-mobile fas fa-bars"></i></td></tr>');
-                                {{!-- $('#thon').append('<option>' + value.id + '</option>'); --}}
+                                '</td><td class="displaynone">'+name_province+'</td><td class="button-show">'+ '<a href="/view/' + value.cccd + '">' +'<button disabled class="btn btn-show displaynone">Chi Tiết</button>' + '</a>' + '<i class="btn-show-mobile js-btn-show-mobile fas fa-bars"></i></td></tr>');
                             }
                         })
                     }).catch(err => {
@@ -425,7 +396,7 @@
                             if (value.id_thon.substring(0,4) === code_district) {
                                 $('.table_body').append('<tr class="oddr">'+'<td><input type="checkbox" name="checkid" id="checkid"></td>'+
                                 '<td>'+value.name+'</td><td>'+value.dob+'</td><td>'+value.gioi_tinh+'</td><td class="displaynone">'+value.cccd+
-                                '</td><td class="displaynone">'+name_district+'</td><td class="button-show"><button class="btn btn-show displaynone">Chi Tiết</button><i class="btn-show-mobile js-btn-show-mobile fas fa-bars"></i></td></tr>');
+                                '</td><td class="displaynone">'+name_district+'</td><td class="button-show">'+ '<a href="/view/' + value.cccd + '">' +'<button disabled class="btn btn-show displaynone">Chi Tiết</button>' + '</a>' + '<i class="btn-show-mobile js-btn-show-mobile fas fa-bars"></i></td></tr>');
                                 {{!-- $('#thon').append('<option>' + value.id + '</option>'); --}}
                             }
                         })
@@ -443,7 +414,7 @@
                             if (value.id_thon.substring(0,6) === code_subdistrict) {
                                 $('.table_body').append('<tr class="oddr">'+'<td><input type="checkbox" name="checkid" id="checkid"></td>'+
                                 '<td>'+value.name+'</td><td>'+value.dob+'</td><td>'+value.gioi_tinh+'</td><td class="displaynone">'+value.cccd+
-                                '</td><td class="displaynone">'+name_subdistrict+'</td><td class="button-show"><button class="btn btn-show displaynone">Chi Tiết</button><i class="btn-show-mobile js-btn-show-mobile fas fa-bars"></i></td></tr>');
+                                '</td><td class="displaynone">'+name_subdistrict+'</td><td class="button-show">'+ '<a href="/view/' + value.cccd + '">' +'<button disabled class="btn btn-show displaynone">Chi Tiết</button>' + '</a>' + '<i class="btn-show-mobile js-btn-show-mobile fas fa-bars"></i></td></tr>');
                                 {{!-- $('#thon').append('<option>' + value.id + '</option>'); --}}
                             }
                         })
@@ -461,7 +432,7 @@
                             if (value.id_thon === code_thon) {
                                 $('.table_body').append('<tr class="oddr">'+'<td><input type="checkbox" name="checkid" id="checkid"></td>'+
                                 '<td>'+value.name+'</td><td>'+value.dob+'</td><td>'+value.gioi_tinh+'</td><td class="displaynone">'+value.cccd+
-                                '</td><td class="displaynone">'+name_thon+'</td><td class="button-show"><button class="btn btn-show displaynone">Chi Tiết</button><i class="btn-show-mobile js-btn-show-mobile fas fa-bars"></i></td></tr>');
+                                '</td><td class="displaynone">'+name_thon+'</td><td class="button-show">'+ '<a href="/view/' + value.cccd + '">' +'<button disabled class="btn btn-show displaynone">Chi Tiết</button>' + '</a>' + '<i class="btn-show-mobile js-btn-show-mobile fas fa-bars"></i></td></tr>');
                                 {{!-- $('#thon').append('<option>' + value.id + '</option>'); --}}
                             }
                         })
@@ -627,7 +598,7 @@
                             if (value.id_thon.substring(0,4) === code_district) {
                                 $('.table_body').append('<tr class="oddr">'+'<td><input type="checkbox" name="checkid" id="checkid"></td>'+
                                 '<td>'+value.name+'</td><td>'+value.dob+'</td><td>'+value.gioi_tinh+'</td><td class="displaynone">'+value.cccd+
-                                '</td><td class="displaynone">'+name_district+'</td><td class="button-show"><button class="btn btn-show displaynone">Chi Tiết</button><i class="btn-show-mobile js-btn-show-mobile fas fa-bars"></i></td></tr>');
+                                '</td><td class="displaynone">'+name_district+'</td><td class="button-show">'+ '<a href="/view/' + value.cccd + '">' +'<button disabled class="btn btn-show displaynone">Chi Tiết</button>' + '</a>' + '<i class="btn-show-mobile js-btn-show-mobile fas fa-bars"></i></td></tr>');
                                 {{!-- $('#thon').append('<option>' + value.id + '</option>'); --}}
                             }
                         })
@@ -645,7 +616,7 @@
                             if (value.id_thon.substring(0,6) === code_subdistrict) {
                                 $('.table_body').append('<tr class="oddr">'+'<td><input type="checkbox" name="checkid" id="checkid"></td>'+
                                 '<td>'+value.name+'</td><td>'+value.dob+'</td><td>'+value.gioi_tinh+'</td><td class="displaynone">'+value.cccd+
-                                '</td><td class="displaynone">'+name_subdistrict+'</td><td class="button-show"><button class="btn btn-show displaynone">Chi Tiết</button><i class="btn-show-mobile js-btn-show-mobile fas fa-bars"></i></td></tr>');
+                                '</td><td class="displaynone">'+name_subdistrict+'</td><td class="button-show">'+ '<a href="/view/' + value.cccd + '">' +'<button disabled class="btn btn-show displaynone">Chi Tiết</button>' + '</a>' + '<i class="btn-show-mobile js-btn-show-mobile fas fa-bars"></i></td></tr>');
                                 {{!-- $('#thon').append('<option>' + value.id + '</option>'); --}}
                             }
                         })
@@ -663,7 +634,7 @@
                             if (value.id_thon === code_thon) {
                                 $('.table_body').append('<tr class="oddr">'+'<td><input type="checkbox" name="checkid" id="checkid"></td>'+
                                 '<td>'+value.name+'</td><td>'+value.dob+'</td><td>'+value.gioi_tinh+'</td><td class="displaynone">'+value.cccd+
-                                '</td><td class="displaynone">'+name_thon+'</td><td class="button-show"><button class="btn btn-show displaynone">Chi Tiết</button><i class="btn-show-mobile js-btn-show-mobile fas fa-bars"></i></td></tr>');
+                                '</td><td class="displaynone">'+name_thon+'</td><td class="button-show">'+ '<a href="/view/' + value.cccd + '">' +'<button disabled class="btn btn-show displaynone">Chi Tiết</button>' + '</a>' + '<i class="btn-show-mobile js-btn-show-mobile fas fa-bars"></i></td></tr>');
                                 {{!-- $('#thon').append('<option>' + value.id + '</option>'); --}}
                             }
                         })
@@ -801,7 +772,7 @@
                             if (value.id_thon.substring(0,6) === code_subdistrict) {
                                 $('.table_body').append('<tr class="oddr">'+'<td><input type="checkbox" name="checkid" id="checkid"></td>'+
                                 '<td>'+value.name+'</td><td>'+value.dob+'</td><td>'+value.gioi_tinh+'</td><td class="displaynone">'+value.cccd+
-                                '</td><td class="displaynone">'+name_subdistrict+'</td><td class="button-show"><button class="btn btn-show displaynone">Chi Tiết</button><i class="btn-show-mobile js-btn-show-mobile fas fa-bars"></i></td></tr>');
+                                '</td><td class="displaynone">'+name_subdistrict+'</td><td class="button-show">'+ '<a href="/view/' + value.cccd + '">' +'<button disabled class="btn btn-show displaynone">Chi Tiết</button>' + '</a>' + '<i class="btn-show-mobile js-btn-show-mobile fas fa-bars"></i></td></tr>');
                                 {{!-- $('#thon').append('<option>' + value.id + '</option>'); --}}
                             }
                         })
@@ -819,7 +790,7 @@
                             if (value.id_thon === code_thon) {
                                 $('.table_body').append('<tr class="oddr">'+'<td><input type="checkbox" name="checkid" id="checkid"></td>'+
                                 '<td>'+value.name+'</td><td>'+value.dob+'</td><td>'+value.gioi_tinh+'</td><td class="displaynone">'+value.cccd+
-                                '</td><td class="displaynone">'+name_thon+'</td><td class="button-show"><button class="btn btn-show displaynone">Chi Tiết</button><i class="btn-show-mobile js-btn-show-mobile fas fa-bars"></i></td></tr>');
+                                '</td><td class="displaynone">'+name_thon+'</td><td class="button-show">'+ '<a href="/view/' + value.cccd + '">' +'<button disabled class="btn btn-show displaynone">Chi Tiết</button>' + '</a>' + '<i class="btn-show-mobile js-btn-show-mobile fas fa-bars"></i></td></tr>');
                                 {{!-- $('#thon').append('<option>' + value.id + '</option>'); --}}
                             }
                         })
@@ -930,7 +901,7 @@
                             if (value.id_thon === code_thon) {
                                 $('.table_body').append('<tr class="oddr">'+'<td><input type="checkbox" name="checkid" id="checkid"></td>'+
                                 '<td>'+value.name+'</td><td>'+value.dob+'</td><td>'+value.gioi_tinh+'</td><td class="displaynone">'+value.cccd+
-                                '</td><td class="displaynone">'+name_thon+'</td><td class="button-show"><button class="btn btn-show displaynone">Chi Tiết</button><i class="btn-show-mobile js-btn-show-mobile fas fa-bars"></i></td></tr>');
+                                '</td><td class="displaynone">'+name_thon+'</td><td class="button-show">'+ '<a href="/view/' + value.cccd + '">' +'<button disabled class="btn btn-show displaynone">Chi Tiết</button>' + '</a>' + '<i class="btn-show-mobile js-btn-show-mobile fas fa-bars"></i></td></tr>');
                                 {{!-- $('#thon').append('<option>' + value.id + '</option>'); --}}
                             }
                         })
